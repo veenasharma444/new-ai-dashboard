@@ -1,0 +1,7 @@
+{
+  "provider": "ollama",
+  "model_name": "qwen2.5:14b",
+  "base_url": "https://ollama.osourceglobal.com:11434",
+  "api_key": "",
+  "include_sample_data": true
+}
