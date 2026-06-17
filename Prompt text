@@ -1,489 +1,161 @@
-[OK] Loading active user upload: .cache/user_uploads\20260617-171415-cec9156b.pkl
-[OK] Loaded 4,205 rows x 31 cols from user upload
-  - Client Name: categorical (cardinality=1202, missing=0.2%)
-  - Marsha: categorical (cardinality=555, missing=57.6%)
-  - Property Name: categorical (cardinality=451, missing=77.3%)
-  - Invoice No: categorical (cardinality=4198, missing=0.2%)
-  - Invoice Date: temporal (cardinality=528, missing=0.2%)
-  - Due Days: numeric (cardinality=528, missing=0.2%)
-  - Revenue Head: categorical (cardinality=26, missing=8.3%)
-  - Nature of Services: categorical (cardinality=6, missing=8.3%)
-  - Service: categorical (cardinality=48, missing=0.2%)
-  - Invoice Amount: numeric (cardinality=2017, missing=0.1%)
-  - Below 30 Days: numeric (cardinality=843, missing=0.1%)
-  - Overdue 30 - 60 Days: numeric (cardinality=440, missing=0.2%)
-  - Overdue 60 - 180 Days: numeric (cardinality=502, missing=0.2%)
-  - Overdue Above 180 Days: numeric (cardinality=249, missing=0.2%)
-  - Above 1 year: numeric (cardinality=292, missing=0.2%)
-  - Balance Collection Amount: numeric (cardinality=401, missing=0.2%)
-  - Credit Note Issued: numeric (cardinality=4, missing=0.2%)
-  - Balance Amount: numeric (cardinality=2376, missing=0.2%)
-  - Unnamed: 18: numeric (cardinality=173, missing=79.5%)
-  - Forex Balance Amount: numeric (cardinality=209, missing=0.2%)
-  - Particulars: categorical (cardinality=3881, missing=0.2%)
-  - Manager: categorical (cardinality=79, missing=0.2%)
-  - Partner: categorical (cardinality=10, missing=0.2%)
-  - Department: categorical (cardinality=8, missing=0.2%)
-  - Company Group: categorical (cardinality=5, missing=0.2%)
-  - Group: categorical (cardinality=275, missing=0.2%)
-  - Contact Person Name: categorical (cardinality=1194, missing=8.7%)
-  - Brand Name: categorical (cardinality=19, missing=98.1%)
-  - Project MID: categorical (cardinality=1881, missing=10.2%)
-  - Country: categorical (cardinality=43, missing=0.2%)
-  - GST NO: numeric (cardinality=569, missing=0.2%)
-[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
+"""Ollama local/remote inference provider"""
+import requests
+import json
+from llm.base_provider import LLMProvider
+from llm.prompts import DATASET_ANALYSIS_PROMPT
 
-[INFO] Phase 1-2: Generating auto-layout...
-[OK] Generated comprehensive dashboard:
-  - Filters: 5
-  - KPIs: 4
-  - Charts: 12 (analyzing all column types)
-  - Layout: 3-col
-[OK] Auto-generated 12 charts, 5 filters, 4 KPIs
+class OllamaProvider(LLMProvider):
+    """Ollama inference (supports local and remote servers)"""
 
-[WARN] Data Quality Issues:
-  - Marsha has 57.6% missing values
-  - Property Name has 77.3% missing values
-  - Unnamed: 18 has 79.5% missing values
-  - Brand Name has 98.1% missing values
-  - Due Days contains outliers (range: (3.0, 2180.0))
-  - Invoice Amount contains outliers (range: (0.0, 4588996.0))
-  - Below 30 Days contains outliers (range: (0.0, 4588996.0))
-  - Overdue 30 - 60 Days contains outliers (range: (0.0, 3466202.0))
-  - Overdue 60 - 180 Days contains outliers (range: (0.0, 1588918.98))
-  - Overdue Above 180 Days contains outliers (range: (0.0, 955800.0))
-  - Above 1 year contains outliers (range: (0.0, 575250.0))
-  - Balance Collection Amount contains outliers (range: (-3460974.0, 0.0))
-  - Credit Note Issued contains outliers (range: (-59590.0, 0.0))
-  - Balance Amount contains outliers (range: (-325914.44, 4568009.0))
-  - Unnamed: 18 contains outliers (range: (-91.7922933333333, 122.54))
-  - Forex Balance Amount contains outliers (range: (-3690.0, 17809.0))
+    def __init__(self, base_url: str = "https://localhost:11434",
+                 model: str = "qwen2.5-coder"):
+        self.base_url = base_url
+        self.model = model
+        self.timeout = 300  # Ollama remote inference can be slower (5 minutes)
 
-[OK] Found llm_config.json at: llm_config.json
-[OK] Loaded LLM config: provider=ollama
+    def analyze_dataset(self, profiles_json: str, sample_data: str,
+                       user_context: str = None,
+                       include_sample_data: bool = True) -> str:
+        """Send analysis request to Ollama (native /api/generate endpoint)"""
 
-[INFO] Phase 3: Analyzing with LLM...
-[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
-[INFO] Creating LLM provider and analyzer...
-[OK] LLM analyzer created successfully
-[INFO] Running startup LLM analysis...
-[INFO] Sending data to LLM for analysis...
-[ERROR] LLM analysis failed: '\n  "metric"'
-[WARN] LLM returned empty result
-[OK] Chart analyzer initialized
+        prompt = self._build_prompt(
+            profiles_json,
+            sample_data if include_sample_data else "",
+            user_context
+        )
 
-[INFO] Pre-initializing store data...
-[OK] Store data pre-initialized
-PAGE_CONFIG LOADED
-[OK] Loading active user upload: .cache/user_uploads\20260617-171415-cec9156b.pkl
-[OK] Loaded 4,205 rows x 31 cols from user upload
-  - Client Name: categorical (cardinality=1202, missing=0.2%)
-  - Marsha: categorical (cardinality=555, missing=57.6%)
-  - Property Name: categorical (cardinality=451, missing=77.3%)
-  - Invoice No: categorical (cardinality=4198, missing=0.2%)
-  - Invoice Date: temporal (cardinality=528, missing=0.2%)
-  - Due Days: numeric (cardinality=528, missing=0.2%)
-  - Revenue Head: categorical (cardinality=26, missing=8.3%)
-  - Nature of Services: categorical (cardinality=6, missing=8.3%)
-  - Service: categorical (cardinality=48, missing=0.2%)
-  - Invoice Amount: numeric (cardinality=2017, missing=0.1%)
-  - Below 30 Days: numeric (cardinality=843, missing=0.1%)
-  - Overdue 30 - 60 Days: numeric (cardinality=440, missing=0.2%)
-  - Overdue 60 - 180 Days: numeric (cardinality=502, missing=0.2%)
-  - Overdue Above 180 Days: numeric (cardinality=249, missing=0.2%)
-  - Above 1 year: numeric (cardinality=292, missing=0.2%)
-  - Balance Collection Amount: numeric (cardinality=401, missing=0.2%)
-  - Credit Note Issued: numeric (cardinality=4, missing=0.2%)
-  - Balance Amount: numeric (cardinality=2376, missing=0.2%)
-  - Unnamed: 18: numeric (cardinality=173, missing=79.5%)
-  - Forex Balance Amount: numeric (cardinality=209, missing=0.2%)
-  - Particulars: categorical (cardinality=3881, missing=0.2%)
-  - Manager: categorical (cardinality=79, missing=0.2%)
-  - Partner: categorical (cardinality=10, missing=0.2%)
-  - Department: categorical (cardinality=8, missing=0.2%)
-  - Company Group: categorical (cardinality=5, missing=0.2%)
-  - Group: categorical (cardinality=275, missing=0.2%)
-  - Contact Person Name: categorical (cardinality=1194, missing=8.7%)
-  - Brand Name: categorical (cardinality=19, missing=98.1%)
-  - Project MID: categorical (cardinality=1881, missing=10.2%)
-  - Country: categorical (cardinality=43, missing=0.2%)
-  - GST NO: numeric (cardinality=569, missing=0.2%)
-[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
+        try:
+            print(f"[INFO] Calling Ollama at {self.base_url}...")
+            print(f"[INFO] Using model: {self.model}")
 
-[INFO] Phase 1-2: Generating auto-layout...
-[OK] Generated comprehensive dashboard:
-  - Filters: 5
-  - KPIs: 4
-  - Charts: 12 (analyzing all column types)
-  - Layout: 3-col
-[OK] Auto-generated 12 charts, 5 filters, 4 KPIs
+            # Quick connectivity test first (10 second timeout)
+            print(f"[INFO] Testing connectivity (10s timeout)...")
+            try:
+                test_response = requests.get(f"{self.base_url}/api/tags", timeout=10)
+                test_response.raise_for_status()
+                print(f"[OK] Ollama server is responding")
+            except (TimeoutError, ConnectionError, requests.exceptions.RequestException) as test_err:
+                print(f"[ERROR] Ollama server not responding: {type(test_err).__name__}")
+                return "{}"
 
-[WARN] Data Quality Issues:
-  - Marsha has 57.6% missing values
-  - Property Name has 77.3% missing values
-  - Unnamed: 18 has 79.5% missing values
-  - Brand Name has 98.1% missing values
-  - Due Days contains outliers (range: (3.0, 2180.0))
-  - Invoice Amount contains outliers (range: (0.0, 4588996.0))
-  - Below 30 Days contains outliers (range: (0.0, 4588996.0))
-  - Overdue 30 - 60 Days contains outliers (range: (0.0, 3466202.0))
-  - Overdue 60 - 180 Days contains outliers (range: (0.0, 1588918.98))
-  - Overdue Above 180 Days contains outliers (range: (0.0, 955800.0))
-  - Above 1 year contains outliers (range: (0.0, 575250.0))
-  - Balance Collection Amount contains outliers (range: (-3460974.0, 0.0))
-  - Credit Note Issued contains outliers (range: (-59590.0, 0.0))
-  - Balance Amount contains outliers (range: (-325914.44, 4568009.0))
-  - Unnamed: 18 contains outliers (range: (-91.7922933333333, 122.54))
-  - Forex Balance Amount contains outliers (range: (-3690.0, 17809.0))
+            print(f"[INFO] Sending analysis request (timeout: {self.timeout}s)...")
 
-[OK] Found llm_config.json at: llm_config.json
-[OK] Loaded LLM config: provider=ollama
+            # Use native Ollama API endpoint (more reliable)
+            response = requests.post(
+                f"{self.base_url}/api/generate",
+                json={
+                    "model": self.model,
+                    "prompt": prompt,
+                    "temperature": 0.2,
+                    "stream": False,
+                    "format": "json",
+                },
+                # json={
+                #     "model": self.model,
+                #     "prompt": prompt,
+                #     "temperature": 0.7,
+                #     "top_k": 40,
+                #     "top_p": 0.9,
+                #     "stream": False,
+                # },
+                timeout=self.timeout
+            )
 
-[INFO] Phase 3: Analyzing with LLM...
-[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
-[INFO] Creating LLM provider and analyzer...
-[OK] LLM analyzer created successfully
-[INFO] Running startup LLM analysis...
-[INFO] Sending data to LLM for analysis...
-[ERROR] LLM analysis failed: '\n  "metric"'
-[WARN] LLM returned empty result
-[OK] Chart analyzer initialized
+            print(f"[DEBUG] Response status: {response.status_code}")
+            response.raise_for_status()
 
-[INFO] Pre-initializing store data...
-[OK] Store data pre-initialized
-Dash is running on http://0.0.0.0:8050/
+            data = response.json()
+            content = data.get('response', '')
+            print("\n===OLLAMA RESPONSE===")
+            print(content[:5000])
+            print("=====================\n")
+            
+            print("[OK] Ollama response received")
+            return content
 
- * Serving Flask app 'dashboard'
- * Debug mode: on
-[OK] Loading active user upload: .cache/user_uploads\20260617-171415-cec9156b.pkl
-[OK] Loaded 4,205 rows x 31 cols from user upload
-  - Client Name: categorical (cardinality=1202, missing=0.2%)
-  - Marsha: categorical (cardinality=555, missing=57.6%)
-  - Property Name: categorical (cardinality=451, missing=77.3%)
-  - Invoice No: categorical (cardinality=4198, missing=0.2%)
-  - Invoice Date: temporal (cardinality=528, missing=0.2%)
-  - Due Days: numeric (cardinality=528, missing=0.2%)
-  - Revenue Head: categorical (cardinality=26, missing=8.3%)
-  - Nature of Services: categorical (cardinality=6, missing=8.3%)
-  - Service: categorical (cardinality=48, missing=0.2%)
-  - Invoice Amount: numeric (cardinality=2017, missing=0.1%)
-  - Below 30 Days: numeric (cardinality=843, missing=0.1%)
-  - Overdue 30 - 60 Days: numeric (cardinality=440, missing=0.2%)
-  - Overdue 60 - 180 Days: numeric (cardinality=502, missing=0.2%)
-  - Overdue Above 180 Days: numeric (cardinality=249, missing=0.2%)
-  - Above 1 year: numeric (cardinality=292, missing=0.2%)
-  - Balance Collection Amount: numeric (cardinality=401, missing=0.2%)
-  - Credit Note Issued: numeric (cardinality=4, missing=0.2%)
-  - Balance Amount: numeric (cardinality=2376, missing=0.2%)
-  - Unnamed: 18: numeric (cardinality=173, missing=79.5%)
-  - Forex Balance Amount: numeric (cardinality=209, missing=0.2%)
-  - Particulars: categorical (cardinality=3881, missing=0.2%)
-  - Manager: categorical (cardinality=79, missing=0.2%)
-  - Partner: categorical (cardinality=10, missing=0.2%)
-  - Department: categorical (cardinality=8, missing=0.2%)
-  - Company Group: categorical (cardinality=5, missing=0.2%)
-  - Group: categorical (cardinality=275, missing=0.2%)
-  - Contact Person Name: categorical (cardinality=1194, missing=8.7%)
-  - Brand Name: categorical (cardinality=19, missing=98.1%)
-  - Project MID: categorical (cardinality=1881, missing=10.2%)
-  - Country: categorical (cardinality=43, missing=0.2%)
-  - GST NO: numeric (cardinality=569, missing=0.2%)
-[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
+        except (requests.exceptions.ConnectionError, ConnectionError) as e:
+            print(f"[ERROR] Cannot connect to Ollama at {self.base_url}")
+            print(f"[ERROR] Details: {type(e).__name__}")
+            return "{}"
+        except (requests.exceptions.Timeout, TimeoutError) as e:
+            print(f"[ERROR] Ollama request timed out after {self.timeout}s")
+            print(f"[ERROR] This may mean:")
+            print(f"  1. The model '{self.model}' needs to be loaded on the Ollama server")
+            print(f"  2. The Ollama server is busy/slow")
+            print(f"  3. Network latency is high")
+            print(f"[TIP] Try using a local Ollama instance or another LLM provider")
+            return "{}"
+        except requests.exceptions.HTTPError as e:
+            try:
+                print(f"[ERROR] HTTP Error: {response.status_code}")
+                print(f"[ERROR] Response: {response.text[:500]}")
+            except:
+                print(f"[ERROR] HTTP Error: {e}")
+            return "{}"
+        except Exception as e:
+            print(f"[ERROR] Ollama error: {type(e).__name__}: {str(e)[:100]}")
+            return "{}"
 
-[INFO] Phase 1-2: Generating auto-layout...
-[OK] Generated comprehensive dashboard:
-  - Filters: 5
-  - KPIs: 4
-  - Charts: 12 (analyzing all column types)
-  - Layout: 3-col
-[OK] Auto-generated 12 charts, 5 filters, 4 KPIs
+    def generate_text(self, prompt: str) -> str:
+        """Send a raw prompt directly to Ollama without template wrapping"""
+        try:
+            test_response = requests.get(f"{self.base_url}/api/tags", timeout=10)
+            test_response.raise_for_status()
+        except Exception:
+            return ""
 
-[WARN] Data Quality Issues:
-  - Marsha has 57.6% missing values
-  - Property Name has 77.3% missing values
-  - Unnamed: 18 has 79.5% missing values
-  - Brand Name has 98.1% missing values
-  - Due Days contains outliers (range: (3.0, 2180.0))
-  - Invoice Amount contains outliers (range: (0.0, 4588996.0))
-  - Below 30 Days contains outliers (range: (0.0, 4588996.0))
-  - Overdue 30 - 60 Days contains outliers (range: (0.0, 3466202.0))
-  - Overdue 60 - 180 Days contains outliers (range: (0.0, 1588918.98))
-  - Overdue Above 180 Days contains outliers (range: (0.0, 955800.0))
-  - Above 1 year contains outliers (range: (0.0, 575250.0))
-  - Balance Collection Amount contains outliers (range: (-3460974.0, 0.0))
-  - Credit Note Issued contains outliers (range: (-59590.0, 0.0))
-  - Balance Amount contains outliers (range: (-325914.44, 4568009.0))
-  - Unnamed: 18 contains outliers (range: (-91.7922933333333, 122.54))
-  - Forex Balance Amount contains outliers (range: (-3690.0, 17809.0))
+        try:
+            response = requests.post(
+                f"{self.base_url}/api/generate",
+                json={
+                    "model": self.model,
+                    "prompt": prompt,
+                    "temperature": 0.3,
+                    "stream": False,
+                },
+                timeout=60,
+            )
+            response.raise_for_status()
+            return response.json().get('response', '').strip()
+        except Exception as e:
+            print(f"[WARN] Ollama generate_text failed: {e}")
+            return ""
 
-[OK] Found llm_config.json at: llm_config.json
-[OK] Loaded LLM config: provider=ollama
+    # def _build_prompt(self, profiles_json: str, sample_data: str,
+    #                  context: str = None) -> str:
+    #     print("BUILD PROMPTS STARTED")
+        
+    #     return f"""
+    # CONTEXT:
+    # {context}
+    
+    # COLUMNS:
+    # {profiles_json}
+    
+    # SAMPLE:
+    # {sample_data}
+    # """
 
-[INFO] Phase 3: Analyzing with LLM...
-[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
-[INFO] Creating LLM provider and analyzer...
-[OK] LLM analyzer created successfully
-[INFO] Running startup LLM analysis...
-[INFO] Sending data to LLM for analysis...
-[ERROR] LLM analysis failed: '\n  "metric"'
-[WARN] LLM returned empty result
-[OK] Chart analyzer initialized
 
-[INFO] Pre-initializing store data...
-[OK] Store data pre-initialized
-PAGE_CONFIG LOADED
-[OK] Loading active user upload: .cache/user_uploads\20260617-171415-cec9156b.pkl
-[OK] Loaded 4,205 rows x 31 cols from user upload
-  - Client Name: categorical (cardinality=1202, missing=0.2%)
-  - Marsha: categorical (cardinality=555, missing=57.6%)
-  - Property Name: categorical (cardinality=451, missing=77.3%)
-  - Invoice No: categorical (cardinality=4198, missing=0.2%)
-  - Invoice Date: temporal (cardinality=528, missing=0.2%)
-  - Due Days: numeric (cardinality=528, missing=0.2%)
-  - Revenue Head: categorical (cardinality=26, missing=8.3%)
-  - Nature of Services: categorical (cardinality=6, missing=8.3%)
-  - Service: categorical (cardinality=48, missing=0.2%)
-  - Invoice Amount: numeric (cardinality=2017, missing=0.1%)
-  - Below 30 Days: numeric (cardinality=843, missing=0.1%)
-  - Overdue 30 - 60 Days: numeric (cardinality=440, missing=0.2%)
-  - Overdue 60 - 180 Days: numeric (cardinality=502, missing=0.2%)
-  - Overdue Above 180 Days: numeric (cardinality=249, missing=0.2%)
-  - Above 1 year: numeric (cardinality=292, missing=0.2%)
-  - Balance Collection Amount: numeric (cardinality=401, missing=0.2%)
-  - Credit Note Issued: numeric (cardinality=4, missing=0.2%)
-  - Balance Amount: numeric (cardinality=2376, missing=0.2%)
-  - Unnamed: 18: numeric (cardinality=173, missing=79.5%)
-  - Forex Balance Amount: numeric (cardinality=209, missing=0.2%)
-  - Particulars: categorical (cardinality=3881, missing=0.2%)
-  - Manager: categorical (cardinality=79, missing=0.2%)
-  - Partner: categorical (cardinality=10, missing=0.2%)
-  - Department: categorical (cardinality=8, missing=0.2%)
-  - Company Group: categorical (cardinality=5, missing=0.2%)
-  - Group: categorical (cardinality=275, missing=0.2%)
-  - Contact Person Name: categorical (cardinality=1194, missing=8.7%)
-  - Brand Name: categorical (cardinality=19, missing=98.1%)
-  - Project MID: categorical (cardinality=1881, missing=10.2%)
-  - Country: categorical (cardinality=43, missing=0.2%)
-  - GST NO: numeric (cardinality=569, missing=0.2%)
-[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
+    # def _build_prompt(self, profiles_json: str, sample_data: str,
+    #                  context: str = None) -> str:
+    #     """Build analysis prompt"""
+    #     return DATASET_ANALYSIS_PROMPT.format(
+    #         column_profiles=profiles_json,
+    #         sample_data=sample_data,
+    #         context=context or "No additional context provided"
+    #     )
+        
 
-[INFO] Phase 1-2: Generating auto-layout...
-[OK] Generated comprehensive dashboard:
-  - Filters: 5
-  - KPIs: 4
-  - Charts: 12 (analyzing all column types)
-  - Layout: 3-col
-[OK] Auto-generated 12 charts, 5 filters, 4 KPIs
-
-[WARN] Data Quality Issues:
-  - Marsha has 57.6% missing values
-  - Property Name has 77.3% missing values
-  - Unnamed: 18 has 79.5% missing values
-  - Brand Name has 98.1% missing values
-  - Due Days contains outliers (range: (3.0, 2180.0))
-  - Invoice Amount contains outliers (range: (0.0, 4588996.0))
-  - Below 30 Days contains outliers (range: (0.0, 4588996.0))
-  - Overdue 30 - 60 Days contains outliers (range: (0.0, 3466202.0))
-  - Overdue 60 - 180 Days contains outliers (range: (0.0, 1588918.98))
-  - Overdue Above 180 Days contains outliers (range: (0.0, 955800.0))
-  - Above 1 year contains outliers (range: (0.0, 575250.0))
-  - Balance Collection Amount contains outliers (range: (-3460974.0, 0.0))
-  - Credit Note Issued contains outliers (range: (-59590.0, 0.0))
-  - Balance Amount contains outliers (range: (-325914.44, 4568009.0))
-  - Unnamed: 18 contains outliers (range: (-91.7922933333333, 122.54))
-  - Forex Balance Amount contains outliers (range: (-3690.0, 17809.0))
-
-[OK] Found llm_config.json at: llm_config.json
-[OK] Loaded LLM config: provider=ollama
-
-[INFO] Phase 3: Analyzing with LLM...
-[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
-[INFO] Creating LLM provider and analyzer...
-[OK] LLM analyzer created successfully
-[INFO] Running startup LLM analysis...
-[INFO] Sending data to LLM for analysis...
-[ERROR] LLM analysis failed: '\n  "metric"'
-[WARN] LLM returned empty result
-[OK] Chart analyzer initialized
-
-[INFO] Pre-initializing store data...
-[OK] Store data pre-initialized
- Signin clicked 0 None
-[OK] App DB connected: 192.168.202.114:5432
- Signin clicked 1 veenash
-[AUTH] Login attempt: veenash
-[OK] Login success: veenash
-[AUTH] Login attempt: veenash
-[OK] Login success: veenash
-[OK] Upload saved: 20260617-174348-3f90c0d5 (4,205 rows)
-[INFO] Selected table = company_master
-[INFO] Loading table: company_master
-[OK] Loaded 5 rows
-[INFO] Selected table = historical_invoices
-[INFO] Loading table: historical_invoices
-[OK] Loaded 1 rows
-STEP 1- CALLBACK STARTED
-STEP 3- BEFORE READ_JSON
-DF_JSON TYPE: <class 'str'>
-DF_JSON PREVIEW: {"columns":["bar_code","vendor_code","company_id","invoice_no","invoice_date","basic_amt","igst","cgst","sgst","tds_rate","tds_amt","advance_adjusted","location","cohance_gstn"],"index":[0],"data":[["
-STEP 4- AFTER READ_JSON
-(1, 14)
-STEP 5 - SUMMARY CREATED
-{'columns': ['bar_code', 'vendor_code', 'company_id', 'invoice_no', 'invoice_date', 'basic_amt', 'igst', 'cgst', 'sgst', 'tds_rate', 'tds_amt', 'advance_adjusted', 'location', 'cohance_gstn'], 'row_count': 1, 'numeric_columns': ['company_id', 'basic_amt', 'igst', 'cgst', 'sgst', 'tds_rate', 'tds_amt', 'advance_adjusted'], 'categorical_columns': ['bar_code', 'vendor_code', 'invoice_no', 'invoice_date', 'location', 'cohance_gstn']}
-STEP 6 - BEFORE ANALYZE
-[INFO] Sending data to LLM for analysis...
-[ERROR] LLM analysis failed: '\n  "metric"'
-STEP 7 - AFTER ANALYZE
-<class 'NoneType'>
-None
-STEP 1- CALLBACK STARTED
-STEP 3- BEFORE READ_JSON
-DF_JSON TYPE: <class 'str'>
-DF_JSON PREVIEW: {"columns":["bar_code","vendor_code","company_id","invoice_no","invoice_date","basic_amt","igst","cgst","sgst","tds_rate","tds_amt","advance_adjusted","location","cohance_gstn"],"index":[0],"data":[["
-STEP 4- AFTER READ_JSON
-(1, 14)
-STEP 5 - SUMMARY CREATED
-{'columns': ['bar_code', 'vendor_code', 'company_id', 'invoice_no', 'invoice_date', 'basic_amt', 'igst', 'cgst', 'sgst', 'tds_rate', 'tds_amt', 'advance_adjusted', 'location', 'cohance_gstn'], 'row_count': 1, 'numeric_columns': ['company_id', 'basic_amt', 'igst', 'cgst', 'sgst', 'tds_rate', 'tds_amt', 'advance_adjusted'], 'categorical_columns': ['bar_code', 'vendor_code', 'invoice_no', 'invoice_date', 'location', 'cohance_gstn']}
-STEP 6 - BEFORE ANALYZE
-[INFO] Sending data to LLM for analysis...
-[ERROR] LLM analysis failed: '\n  "metric"'
-STEP 7 - AFTER ANALYZE
-<class 'NoneType'>
-None
-
-[DEBUG] update_kpi_on_filter called
-[CHARTS] Generating charts for 1 rows
-[DEBUG] DataFrame loaded from cache: 1 rows x 14 cols
-[DEBUG] KPI 'advance_adjusted' (sum): 0.0 (type=float64)
-[CHARTS] Found 0 categorical, 0 numeric columns
-[DEBUG] KPI advance_adjusted formatted: 0.0000
-[WARN] ai_suggestions is <class 'str'>. Skipping AI charts.
-[DEBUG] KPI 'bar_code' (count): 1 (type=int64)
-[CHARTS] Built 0 charts — generating insights...
-[DEBUG] KPI bar_code formatted: 1
-[OK] Loading active user upload: .cache/user_uploads\20260617-174535-aa588115.pkl
-[OK] Loaded 1 rows x 14 cols from user upload
-  - bar_code: numeric (cardinality=1, missing=0.0%)
-  - vendor_code: numeric (cardinality=1, missing=0.0%)
-  - company_id: numeric (cardinality=1, missing=0.0%)
-  - invoice_no: numeric (cardinality=1, missing=0.0%)
-  - invoice_date: temporal (cardinality=1, missing=0.0%)
-  - basic_amt: numeric (cardinality=1, missing=0.0%)
-  - igst: numeric (cardinality=1, missing=0.0%)
-  - cgst: numeric (cardinality=1, missing=0.0%)
-  - sgst: numeric (cardinality=1, missing=0.0%)
-  - tds_rate: numeric (cardinality=1, missing=0.0%)
-  - tds_amt: numeric (cardinality=1, missing=0.0%)
-  - advance_adjusted: numeric (cardinality=1, missing=0.0%)
-  - location: categorical (cardinality=1, missing=0.0%)
-  - cohance_gstn: numeric (cardinality=1, missing=0.0%)
-[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
-
-[INFO] Phase 1-2: Generating auto-layout...
-[OK] Generated comprehensive dashboard:
-  - Filters: 0
-  - KPIs: 0
-  - Charts: 1 (analyzing all column types)
-  - Layout: 1-col
-[OK] Auto-generated 1 charts, 0 filters, 0 KPIs
-
-[WARN] Data Quality Issues:
-  - bar_code has only one unique value
-  - vendor_code has only one unique value
-  - company_id has only one unique value
-  - invoice_no has only one unique value
-  - invoice_date has only one unique value
-  - basic_amt has only one unique value
-  - igst has only one unique value
-  - cgst has only one unique value
-  - sgst has only one unique value
-  - tds_rate has only one unique value
-  - tds_amt has only one unique value
-  - advance_adjusted has only one unique value
-  - location has only one unique value
-  - cohance_gstn has only one unique value
-
-[OK] Found llm_config.json at: llm_config.json
-[OK] Loaded LLM config: provider=ollama
-
-[INFO] Phase 3: Analyzing with LLM...
-[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
-[INFO] Creating LLM provider and analyzer...
-[OK] LLM analyzer created successfully
-[INFO] Running startup LLM analysis...
-[INFO] Sending data to LLM for analysis...
-[ERROR] LLM analysis failed: '\n  "metric"'
-[WARN] LLM returned empty result
-[OK] Chart analyzer initialized
-
-[INFO] Pre-initializing store data...
-[OK] Store data pre-initialized
-PAGE_CONFIG LOADED
-[OK] Loading active user upload: .cache/user_uploads\20260617-174535-aa588115.pkl
-[OK] Loaded 1 rows x 14 cols from user upload
-  - bar_code: numeric (cardinality=1, missing=0.0%)
-  - vendor_code: numeric (cardinality=1, missing=0.0%)
-  - company_id: numeric (cardinality=1, missing=0.0%)
-  - invoice_no: numeric (cardinality=1, missing=0.0%)
-  - invoice_date: temporal (cardinality=1, missing=0.0%)
-  - basic_amt: numeric (cardinality=1, missing=0.0%)
-  - igst: numeric (cardinality=1, missing=0.0%)
-  - cgst: numeric (cardinality=1, missing=0.0%)
-  - sgst: numeric (cardinality=1, missing=0.0%)
-  - tds_rate: numeric (cardinality=1, missing=0.0%)
-  - tds_amt: numeric (cardinality=1, missing=0.0%)
-  - advance_adjusted: numeric (cardinality=1, missing=0.0%)
-  - location: categorical (cardinality=1, missing=0.0%)
-  - cohance_gstn: numeric (cardinality=1, missing=0.0%)
-[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
-
-[INFO] Phase 1-2: Generating auto-layout...
-[OK] Generated comprehensive dashboard:
-  - Filters: 0
-  - KPIs: 0
-  - Charts: 1 (analyzing all column types)
-  - Layout: 1-col
-[OK] Auto-generated 1 charts, 0 filters, 0 KPIs
-
-[WARN] Data Quality Issues:
-  - bar_code has only one unique value
-  - vendor_code has only one unique value
-  - company_id has only one unique value
-  - invoice_no has only one unique value
-  - invoice_date has only one unique value
-  - basic_amt has only one unique value
-  - igst has only one unique value
-  - cgst has only one unique value
-  - sgst has only one unique value
-  - tds_rate has only one unique value
-  - tds_amt has only one unique value
-  - advance_adjusted has only one unique value
-  - location has only one unique value
-  - cohance_gstn has only one unique value
-
-[OK] Found llm_config.json at: llm_config.json
-[OK] Loaded LLM config: provider=ollama
-
-[INFO] Phase 3: Analyzing with LLM...
-[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
-[INFO] Creating LLM provider and analyzer...
-[OK] LLM analyzer created successfully
-[INFO] Running startup LLM analysis...
-[INFO] Sending data to LLM for analysis...
-[ERROR] LLM analysis failed: '\n  "metric"'
-[WARN] LLM returned empty result
-[OK] Chart analyzer initialized
-
-[INFO] Pre-initializing store data...
-[OK] Store data pre-initialized
-
-[DEBUG] update_kpi_on_filter called
-[DEBUG] DataFrame loaded from cache: 1 rows x 14 cols
-[DEBUG] KPI 'advance_adjusted' (sum): 0.0 (type=float64)
-[DEBUG] KPI advance_adjusted formatted: 0.0000
-[DEBUG] KPI 'bar_code' (count): 1 (type=int64)
-[DEBUG] KPI bar_code formatted: 1
-[CHARTS] Generating charts for 1 rows
-[CHARTS] Found 0 categorical, 0 numeric columns
-[WARN] ai_suggestions is <class 'NoneType'>. Skipping AI charts.
-[CHARTS] Built 0 charts — generating insights...
+    def _build_prompt(self, profiles_json: str, sample_data: str,
+                     context: str = None) -> str:
+        """Build analysis prompt"""
+        prompt =  DATASET_ANALYSIS_PROMPT.format(
+            column_profiles=profiles_json,
+            sample_data=sample_data,
+            context=context or "No additional context provided"
+        )
+        print("\n===PROMPT PREVIEW===")
+        print(prompt[:3000])
+        print("===END PROMPT===\n")
+        return prompt
