@@ -1,0 +1,38 @@
+[INFO] Pre-initializing store data...
+[OK] Store data pre-initialized
+STEP 1- CALLBACK STARTED
+STEP 3- BEFORE READ_JSON
+DF_JSON TYPE: <class 'str'>
+DF_JSON PREVIEW: {"columns":["Client Name","Marsha","Property Name","Invoice No","Invoice Date","Due Days","Revenue Head","Nature of Services","Service","Invoice Amount","Below 30 Days","Overdue 30 - 60 Days","Overdue
+STEP 4- AFTER READ_JSON
+(4205, 31)
+STEP 5 - SUMMARY CREATED
+{'columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Invoice Date', 'Due Days', 'Revenue Head', 'Nature of Services', 'Service', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO'], 'row_count': 4205, 'numeric_columns': ['Invoice Date', 'Due Days', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount'], 'categorical_columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Revenue Head', 'Nature of Services', 'Service', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO']}
+STEP 6 - BEFORE ANALYZE
+[INFO] Sending data to LLM for analysis...
+[INFO] Calling Ollama at https://ollama.osourceglobal.com:11434...
+[INFO] Using model: qwen2.5:14b
+[INFO] Testing connectivity (10s timeout)...
+[OK] Ollama server is responding
+[INFO] Sending analysis request (timeout: 300s)...
+[DEBUG] Response status: 200
+[OK] Ollama response received
+[OK] LLM analysis successful
+[INFO] LLM suggested: 2 filters, 3 KPIs, 3 charts
+[WARN] Filter column 'CustomerSegment' not found in dataset, skipping
+[WARN] Filter column 'Date' not found in dataset, skipping
+[WARN] KPI metric 'Total Revenue' not found in dataset, skipping
+[WARN] KPI metric 'ARC Segment Revenue' not found in dataset, skipping
+[WARN] KPI metric 'Number of Customers' not found in dataset, skipping
+[WARN] Chart x_column 'Date' not found, skipping chart 0
+[WARN] Chart y_column 'Total Revenue' not found, skipping chart 0
+[WARN] Chart x_column 'CustomerSegment' not found, skipping chart 1
+[WARN] Chart y_column 'ARC Segment Revenue' not found, skipping chart 1
+[WARN] Chart x_column '' not found, skipping chart 2
+[WARN] Chart y_column '' not found, skipping chart 2
+[WARN] No valid charts generated after validation
+[WARN] No valid KPIs generated after validation
+[WARN] No valid filters generated after validation
+STEP 7 - AFTER ANALYZE
+<class 'core.config.DashboardConfig'>
+DashboardConfig(filters=[], kpis=[], charts=[], layout_grid='3-col', reasoning='This dashboard reveals the year-over-year growth in total revenue, highlights the significant contribution from the ARC segment, and enables detailed exploration through hierarchical drill-downs.')
