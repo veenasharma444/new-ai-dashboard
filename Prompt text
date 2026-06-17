@@ -1,368 +1,5 @@
-[OK] Loaded 4,205 rows x 31 cols from user upload
-  - Client Name: categorical (cardinality=1202, missing=0.2%)
-  - Marsha: categorical (cardinality=555, missing=57.6%)
-  - Property Name: categorical (cardinality=451, missing=77.3%)
-  - Invoice No: categorical (cardinality=4198, missing=0.2%)
-  - Invoice Date: temporal (cardinality=528, missing=0.2%)
-  - Due Days: numeric (cardinality=528, missing=0.2%)
-  - Revenue Head: categorical (cardinality=26, missing=8.3%)
-  - Nature of Services: categorical (cardinality=6, missing=8.3%)
-  - Service: categorical (cardinality=48, missing=0.2%)
-  - Invoice Amount: numeric (cardinality=2017, missing=0.1%)
-  - Below 30 Days: numeric (cardinality=843, missing=0.1%)
-  - Overdue 30 - 60 Days: numeric (cardinality=440, missing=0.2%)
-  - Overdue 60 - 180 Days: numeric (cardinality=502, missing=0.2%)
-  - Overdue Above 180 Days: numeric (cardinality=249, missing=0.2%)
-  - Above 1 year: numeric (cardinality=292, missing=0.2%)
-  - Balance Collection Amount: numeric (cardinality=401, missing=0.2%)
-  - Credit Note Issued: numeric (cardinality=4, missing=0.2%)
-  - Balance Amount: numeric (cardinality=2376, missing=0.2%)
-  - Unnamed: 18: numeric (cardinality=173, missing=79.5%)
-  - Forex Balance Amount: numeric (cardinality=209, missing=0.2%)
-  - Particulars: categorical (cardinality=3881, missing=0.2%)
-  - Manager: categorical (cardinality=79, missing=0.2%)
-  - Partner: categorical (cardinality=10, missing=0.2%)
-  - Department: categorical (cardinality=8, missing=0.2%)
-  - Company Group: categorical (cardinality=5, missing=0.2%)
-  - Group: categorical (cardinality=275, missing=0.2%)
-  - Contact Person Name: categorical (cardinality=1194, missing=8.7%)
-  - Brand Name: categorical (cardinality=19, missing=98.1%)
-  - Project MID: categorical (cardinality=1881, missing=10.2%)
-  - Country: categorical (cardinality=43, missing=0.2%)
-  - GST NO: numeric (cardinality=569, missing=0.2%)
-[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
-
-[INFO] Phase 1-2: Generating auto-layout...
-[OK] Generated comprehensive dashboard:
-  - Filters: 5
-  - KPIs: 4
-  - Charts: 12 (analyzing all column types)
-  - Layout: 3-col
-[OK] Auto-generated 12 charts, 5 filters, 4 KPIs
-
-[WARN] Data Quality Issues:
-  - Marsha has 57.6% missing values
-  - Property Name has 77.3% missing values
-  - Unnamed: 18 has 79.5% missing values
-  - Brand Name has 98.1% missing values
-  - Due Days contains outliers (range: (3.0, 2180.0))
-  - Invoice Amount contains outliers (range: (0.0, 4588996.0))
-  - Below 30 Days contains outliers (range: (0.0, 4588996.0))
-  - Overdue 30 - 60 Days contains outliers (range: (0.0, 3466202.0))
-  - Overdue 60 - 180 Days contains outliers (range: (0.0, 1588918.98))
-  - Overdue Above 180 Days contains outliers (range: (0.0, 955800.0))
-  - Above 1 year contains outliers (range: (0.0, 575250.0))
-  - Balance Collection Amount contains outliers (range: (-3460974.0, 0.0))
-  - Credit Note Issued contains outliers (range: (-59590.0, 0.0))
-  - Balance Amount contains outliers (range: (-325914.44, 4568009.0))
-  - Unnamed: 18 contains outliers (range: (-91.7922933333333, 122.54))
-  - Forex Balance Amount contains outliers (range: (-3690.0, 17809.0))
-
-[OK] Found llm_config.json at: llm_config.json
-[OK] Loaded LLM config: provider=ollama
-
-[INFO] Phase 3: Analyzing with LLM...
-[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
-[INFO] Creating LLM provider and analyzer...
-[OK] LLM analyzer created successfully
-[INFO] Running startup LLM analysis...
-[INFO] Sending data to LLM for analysis...
-BUILD PROMPTS STARTED
-[INFO] Calling Ollama at https://ollama.osourceglobal.com:11434...
-[INFO] Using model: qwen2.5:14b
-[INFO] Testing connectivity (10s timeout)...
-[OK] Ollama server is responding
-[INFO] Sending analysis request (timeout: 300s)...
-[DEBUG] Response status: 200
-[OK] Ollama response received
-[WARN] Could not extract JSON from LLM response
-[WARN] LLM returned empty result
-[OK] Chart analyzer initialized
-
-[INFO] Pre-initializing store data...
-[OK] Store data pre-initialized
-PAGE_CONFIG LOADED
-[OK] Loading active user upload: .cache/user_uploads\20260617-161348-9f451350.pkl
-[OK] Loaded 4,205 rows x 31 cols from user upload
-  - Client Name: categorical (cardinality=1202, missing=0.2%)
-  - Marsha: categorical (cardinality=555, missing=57.6%)
-  - Property Name: categorical (cardinality=451, missing=77.3%)
-  - Invoice No: categorical (cardinality=4198, missing=0.2%)
-  - Invoice Date: temporal (cardinality=528, missing=0.2%)
-  - Due Days: numeric (cardinality=528, missing=0.2%)
-  - Revenue Head: categorical (cardinality=26, missing=8.3%)
-  - Nature of Services: categorical (cardinality=6, missing=8.3%)
-  - Service: categorical (cardinality=48, missing=0.2%)
-  - Invoice Amount: numeric (cardinality=2017, missing=0.1%)
-  - Below 30 Days: numeric (cardinality=843, missing=0.1%)
-  - Overdue 30 - 60 Days: numeric (cardinality=440, missing=0.2%)
-  - Overdue 60 - 180 Days: numeric (cardinality=502, missing=0.2%)
-  - Overdue Above 180 Days: numeric (cardinality=249, missing=0.2%)
-  - Above 1 year: numeric (cardinality=292, missing=0.2%)
-  - Balance Collection Amount: numeric (cardinality=401, missing=0.2%)
-  - Credit Note Issued: numeric (cardinality=4, missing=0.2%)
-  - Balance Amount: numeric (cardinality=2376, missing=0.2%)
-  - Unnamed: 18: numeric (cardinality=173, missing=79.5%)
-  - Forex Balance Amount: numeric (cardinality=209, missing=0.2%)
-  - Particulars: categorical (cardinality=3881, missing=0.2%)
-  - Manager: categorical (cardinality=79, missing=0.2%)
-  - Partner: categorical (cardinality=10, missing=0.2%)
-  - Department: categorical (cardinality=8, missing=0.2%)
-  - Company Group: categorical (cardinality=5, missing=0.2%)
-  - Group: categorical (cardinality=275, missing=0.2%)
-  - Contact Person Name: categorical (cardinality=1194, missing=8.7%)
-  - Brand Name: categorical (cardinality=19, missing=98.1%)
-  - Project MID: categorical (cardinality=1881, missing=10.2%)
-  - Country: categorical (cardinality=43, missing=0.2%)
-  - GST NO: numeric (cardinality=569, missing=0.2%)
-[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
-
-[INFO] Phase 1-2: Generating auto-layout...
-[OK] Generated comprehensive dashboard:
-  - Filters: 5
-  - KPIs: 4
-  - Charts: 12 (analyzing all column types)
-  - Layout: 3-col
-[OK] Auto-generated 12 charts, 5 filters, 4 KPIs
-
-[WARN] Data Quality Issues:
-  - Marsha has 57.6% missing values
-  - Property Name has 77.3% missing values
-  - Unnamed: 18 has 79.5% missing values
-  - Brand Name has 98.1% missing values
-  - Due Days contains outliers (range: (3.0, 2180.0))
-  - Invoice Amount contains outliers (range: (0.0, 4588996.0))
-  - Below 30 Days contains outliers (range: (0.0, 4588996.0))
-  - Overdue 30 - 60 Days contains outliers (range: (0.0, 3466202.0))
-  - Overdue 60 - 180 Days contains outliers (range: (0.0, 1588918.98))
-  - Overdue Above 180 Days contains outliers (range: (0.0, 955800.0))
-  - Above 1 year contains outliers (range: (0.0, 575250.0))
-  - Balance Collection Amount contains outliers (range: (-3460974.0, 0.0))
-  - Credit Note Issued contains outliers (range: (-59590.0, 0.0))
-  - Balance Amount contains outliers (range: (-325914.44, 4568009.0))
-  - Unnamed: 18 contains outliers (range: (-91.7922933333333, 122.54))
-  - Forex Balance Amount contains outliers (range: (-3690.0, 17809.0))
-
-[OK] Found llm_config.json at: llm_config.json
-[OK] Loaded LLM config: provider=ollama
-
-[INFO] Phase 3: Analyzing with LLM...
-[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
-[INFO] Creating LLM provider and analyzer...
-[OK] LLM analyzer created successfully
-[INFO] Running startup LLM analysis...
-[INFO] Sending data to LLM for analysis...
-BUILD PROMPTS STARTED
-[INFO] Calling Ollama at https://ollama.osourceglobal.com:11434...
-[INFO] Using model: qwen2.5:14b
-[INFO] Testing connectivity (10s timeout)...
-[OK] Ollama server is responding
-[INFO] Sending analysis request (timeout: 300s)...
-[DEBUG] Response status: 200
-[OK] Ollama response received
-[WARN] Could not extract JSON from LLM response
-[WARN] LLM returned empty result
-[OK] Chart analyzer initialized
-
-[INFO] Pre-initializing store data...
-[OK] Store data pre-initialized
-Dash is running on http://0.0.0.0:8050/
-
- * Serving Flask app 'dashboard'
- * Debug mode: on
-[OK] Loading active user upload: .cache/user_uploads\20260617-161348-9f451350.pkl
-[OK] Loaded 4,205 rows x 31 cols from user upload
-  - Client Name: categorical (cardinality=1202, missing=0.2%)
-  - Marsha: categorical (cardinality=555, missing=57.6%)
-  - Property Name: categorical (cardinality=451, missing=77.3%)
-  - Invoice No: categorical (cardinality=4198, missing=0.2%)
-  - Invoice Date: temporal (cardinality=528, missing=0.2%)
-  - Due Days: numeric (cardinality=528, missing=0.2%)
-  - Revenue Head: categorical (cardinality=26, missing=8.3%)
-  - Nature of Services: categorical (cardinality=6, missing=8.3%)
-  - Service: categorical (cardinality=48, missing=0.2%)
-  - Invoice Amount: numeric (cardinality=2017, missing=0.1%)
-  - Below 30 Days: numeric (cardinality=843, missing=0.1%)
-  - Overdue 30 - 60 Days: numeric (cardinality=440, missing=0.2%)
-  - Overdue 60 - 180 Days: numeric (cardinality=502, missing=0.2%)
-  - Overdue Above 180 Days: numeric (cardinality=249, missing=0.2%)
-  - Above 1 year: numeric (cardinality=292, missing=0.2%)
-  - Balance Collection Amount: numeric (cardinality=401, missing=0.2%)
-  - Credit Note Issued: numeric (cardinality=4, missing=0.2%)
-  - Balance Amount: numeric (cardinality=2376, missing=0.2%)
-  - Unnamed: 18: numeric (cardinality=173, missing=79.5%)
-  - Forex Balance Amount: numeric (cardinality=209, missing=0.2%)
-  - Particulars: categorical (cardinality=3881, missing=0.2%)
-  - Manager: categorical (cardinality=79, missing=0.2%)
-  - Partner: categorical (cardinality=10, missing=0.2%)
-  - Department: categorical (cardinality=8, missing=0.2%)
-  - Company Group: categorical (cardinality=5, missing=0.2%)
-  - Group: categorical (cardinality=275, missing=0.2%)
-  - Contact Person Name: categorical (cardinality=1194, missing=8.7%)
-  - Brand Name: categorical (cardinality=19, missing=98.1%)
-  - Project MID: categorical (cardinality=1881, missing=10.2%)
-  - Country: categorical (cardinality=43, missing=0.2%)
-  - GST NO: numeric (cardinality=569, missing=0.2%)
-[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
-
-[INFO] Phase 1-2: Generating auto-layout...
-[OK] Generated comprehensive dashboard:
-  - Filters: 5
-  - KPIs: 4
-  - Charts: 12 (analyzing all column types)
-  - Layout: 3-col
-[OK] Auto-generated 12 charts, 5 filters, 4 KPIs
-
-[WARN] Data Quality Issues:
-  - Marsha has 57.6% missing values
-  - Property Name has 77.3% missing values
-  - Unnamed: 18 has 79.5% missing values
-  - Brand Name has 98.1% missing values
-  - Due Days contains outliers (range: (3.0, 2180.0))
-  - Invoice Amount contains outliers (range: (0.0, 4588996.0))
-  - Below 30 Days contains outliers (range: (0.0, 4588996.0))
-  - Overdue 30 - 60 Days contains outliers (range: (0.0, 3466202.0))
-  - Overdue 60 - 180 Days contains outliers (range: (0.0, 1588918.98))
-  - Overdue Above 180 Days contains outliers (range: (0.0, 955800.0))
-  - Above 1 year contains outliers (range: (0.0, 575250.0))
-  - Balance Collection Amount contains outliers (range: (-3460974.0, 0.0))
-  - Credit Note Issued contains outliers (range: (-59590.0, 0.0))
-  - Balance Amount contains outliers (range: (-325914.44, 4568009.0))
-  - Unnamed: 18 contains outliers (range: (-91.7922933333333, 122.54))
-  - Forex Balance Amount contains outliers (range: (-3690.0, 17809.0))
-
-[OK] Found llm_config.json at: llm_config.json
-[OK] Loaded LLM config: provider=ollama
-
-[INFO] Phase 3: Analyzing with LLM...
-[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
-[INFO] Creating LLM provider and analyzer...
-[OK] LLM analyzer created successfully
-[INFO] Running startup LLM analysis...
-[INFO] Sending data to LLM for analysis...
-BUILD PROMPTS STARTED
-[INFO] Calling Ollama at https://ollama.osourceglobal.com:11434...
-[INFO] Using model: qwen2.5:14b
-[INFO] Testing connectivity (10s timeout)...
-[OK] Ollama server is responding
-[INFO] Sending analysis request (timeout: 300s)...
-[DEBUG] Response status: 200
-[OK] Ollama response received
-[WARN] Could not extract JSON from LLM response
-[WARN] LLM returned empty result
-[OK] Chart analyzer initialized
-
-[INFO] Pre-initializing store data...
-[OK] Store data pre-initialized
-PAGE_CONFIG LOADED
-[OK] Loading active user upload: .cache/user_uploads\20260617-161348-9f451350.pkl
-[OK] Loaded 4,205 rows x 31 cols from user upload
-  - Client Name: categorical (cardinality=1202, missing=0.2%)
-  - Marsha: categorical (cardinality=555, missing=57.6%)
-  - Property Name: categorical (cardinality=451, missing=77.3%)
-  - Invoice No: categorical (cardinality=4198, missing=0.2%)
-  - Invoice Date: temporal (cardinality=528, missing=0.2%)
-  - Due Days: numeric (cardinality=528, missing=0.2%)
-  - Revenue Head: categorical (cardinality=26, missing=8.3%)
-  - Nature of Services: categorical (cardinality=6, missing=8.3%)
-  - Service: categorical (cardinality=48, missing=0.2%)
-  - Invoice Amount: numeric (cardinality=2017, missing=0.1%)
-  - Below 30 Days: numeric (cardinality=843, missing=0.1%)
-  - Overdue 30 - 60 Days: numeric (cardinality=440, missing=0.2%)
-  - Overdue 60 - 180 Days: numeric (cardinality=502, missing=0.2%)
-  - Overdue Above 180 Days: numeric (cardinality=249, missing=0.2%)
-  - Above 1 year: numeric (cardinality=292, missing=0.2%)
-  - Balance Collection Amount: numeric (cardinality=401, missing=0.2%)
-  - Credit Note Issued: numeric (cardinality=4, missing=0.2%)
-  - Balance Amount: numeric (cardinality=2376, missing=0.2%)
-  - Unnamed: 18: numeric (cardinality=173, missing=79.5%)
-  - Forex Balance Amount: numeric (cardinality=209, missing=0.2%)
-  - Particulars: categorical (cardinality=3881, missing=0.2%)
-  - Manager: categorical (cardinality=79, missing=0.2%)
-  - Partner: categorical (cardinality=10, missing=0.2%)
-  - Department: categorical (cardinality=8, missing=0.2%)
-  - Company Group: categorical (cardinality=5, missing=0.2%)
-  - Group: categorical (cardinality=275, missing=0.2%)
-  - Contact Person Name: categorical (cardinality=1194, missing=8.7%)
-  - Brand Name: categorical (cardinality=19, missing=98.1%)
-  - Project MID: categorical (cardinality=1881, missing=10.2%)
-  - Country: categorical (cardinality=43, missing=0.2%)
-  - GST NO: numeric (cardinality=569, missing=0.2%)
-[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
-
-[INFO] Phase 1-2: Generating auto-layout...
-[OK] Generated comprehensive dashboard:
-  - Filters: 5
-  - KPIs: 4
-  - Charts: 12 (analyzing all column types)
-  - Layout: 3-col
-[OK] Auto-generated 12 charts, 5 filters, 4 KPIs
-
-[WARN] Data Quality Issues:
-  - Marsha has 57.6% missing values
-  - Property Name has 77.3% missing values
-  - Unnamed: 18 has 79.5% missing values
-  - Brand Name has 98.1% missing values
-  - Due Days contains outliers (range: (3.0, 2180.0))
-  - Invoice Amount contains outliers (range: (0.0, 4588996.0))
-  - Below 30 Days contains outliers (range: (0.0, 4588996.0))
-  - Overdue 30 - 60 Days contains outliers (range: (0.0, 3466202.0))
-  - Overdue 60 - 180 Days contains outliers (range: (0.0, 1588918.98))
-  - Overdue Above 180 Days contains outliers (range: (0.0, 955800.0))
-  - Above 1 year contains outliers (range: (0.0, 575250.0))
-  - Balance Collection Amount contains outliers (range: (-3460974.0, 0.0))
-  - Credit Note Issued contains outliers (range: (-59590.0, 0.0))
-  - Balance Amount contains outliers (range: (-325914.44, 4568009.0))
-  - Unnamed: 18 contains outliers (range: (-91.7922933333333, 122.54))
-  - Forex Balance Amount contains outliers (range: (-3690.0, 17809.0))
-
-[OK] Found llm_config.json at: llm_config.json
-[OK] Loaded LLM config: provider=ollama
-
-[INFO] Phase 3: Analyzing with LLM...
-[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
-[INFO] Creating LLM provider and analyzer...
-[OK] LLM analyzer created successfully
-[INFO] Running startup LLM analysis...
-[INFO] Sending data to LLM for analysis...
-BUILD PROMPTS STARTED
-[INFO] Calling Ollama at https://ollama.osourceglobal.com:11434...
-[INFO] Using model: qwen2.5:14b
-[INFO] Testing connectivity (10s timeout)...
-[OK] Ollama server is responding
-[INFO] Sending analysis request (timeout: 300s)...
-[DEBUG] Response status: 200
-[OK] Ollama response received
-[WARN] Could not extract JSON from LLM response
-[WARN] LLM returned empty result
-[OK] Chart analyzer initialized
-
-[INFO] Pre-initializing store data...
-[OK] Store data pre-initialized
- Signin clicked 0 None
-[OK] App DB connected: 192.168.202.114:5432
- Signin clicked 1 veenash
-[AUTH] Login attempt: veenash
 [OK] Login success: veenash
-[AUTH] Login attempt: veenash
-[OK] Login success: veenash
-[OK] Upload saved: 20260617-163052-ccb79588 (4,205 rows)
-STEP 1- CALLBACK STARTED
-STEP 3- BEFORE READ_JSON
-DF_JSON TYPE: <class 'str'>
-DF_JSON PREVIEW: {"columns":["Client Name","Marsha","Property Name","Invoice No","Invoice Date","Due Days","Revenue Head","Nature of Services","Service","Invoice Amount","Below 30 Days","Overdue 30 - 60 Days","Overdue
-STEP 4- AFTER READ_JSON
-(4205, 31)
-STEP 5 - SUMMARY CREATED
-{'columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Invoice Date', 'Due Days', 'Revenue Head', 'Nature of Services', 'Service', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO'], 'row_count': 4205, 'numeric_columns': ['Invoice Date', 'Due Days', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount'], 'categorical_columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Revenue Head', 'Nature of Services', 'Service', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO']}
-STEP 6 - BEFORE ANALYZE
-[INFO] Sending data to LLM for analysis...
-BUILD PROMPTS STARTED
-[INFO] Calling Ollama at https://ollama.osourceglobal.com:11434...
-[INFO] Using model: qwen2.5:14b
-[INFO] Testing connectivity (10s timeout)...
-[OK] Ollama server is responding
-[INFO] Sending analysis request (timeout: 300s)...
+[OK] Upload saved: 20260617-164300-8efe0b19 (4,205 rows)
 STEP 1- CALLBACK STARTED
 STEP 3- BEFORE READ_JSON
 DF_JSON TYPE: <class 'str'>
@@ -380,12 +17,136 @@ BUILD PROMPTS STARTED
 [OK] Ollama server is responding
 [INFO] Sending analysis request (timeout: 300s)...
 [DEBUG] Response status: 200
+
+===OLLAMA RESPONSE===
+The provided data structure appears to be a summary of columns and their characteristics from a pandas DataFrame, along with a sample row of the DataFrame. This information can help in understanding the nature and types of variables present in your dataset.
+
+Here's a brief interpretation of some key points:
+
+1. **Columns Information**:
+   - Each column has metadata such as `dtype` (data type), `cardinality`, `missing_pct`, etc.
+   - Example: For `Invoice Amount`, we see that it is numeric, and the top values are 96159.0, 13541.0, 106200.0, etc.
+
+2. **Sample Data**:
+   - Provides a glimpse of how data is structured with actual values.
+   - Example: `Client Name` has "2566305 ONTARIO INC YAMDS", `Invoice Date` is given in scientific notation (like 1.76904e+12, likely Unix timestamp format), and `Due Days` is an integer like 53.
+   - The column `Particulars` shows a very long text string which might be details of services provided or charges.
+
+### Key Points for Analysis
+
+- **Numeric Columns**: 
+    - `Invoice Amount`, `Below 30 Days`, `Overdue 30 - 60 Days`, etc., are numeric and can be used in quantitative analysis.
+  
+- **Categorical Columns**:
+    - `Client Name`, `Property Name`, `Service`, `Revenue Head`, etc. contain categorical data.
+    - Some columns have very high cardinality (e.g., `Contact Person Name` with 1194 unique values), which might need further aggregation or reduction for analysis.
+
+- **Date and Time Columns**:
+    - `Invoice Date`: Might require conversion from Unix timestamp to a date format like YYYY-MM-DD for better readability and manipulation.
+  
+- **Missing Values**: 
+    - Some columns have high missing value percentages (e.g., `Brand Name` with 98.1% missing data), indicating these might not be useful unless there's additional information.
+
+### Potential Analysis Directions
+
+1. **Descriptive Statistics**:
+   - Calculate summary statistics for numeric variables like mean, median, standard deviation.
+  
+2. **Missing Value Handling**:
+   - Decide how to handle columns with high percentages of missing values (e.g., imputation or dropping).
+
+3. **Feature Engineering**:
+   - Convert `Invoice Date` from Unix timestamp to a more readable date format.
+   - Create new features like "Age of Invoice" by calculating the difference between invoice and due dates.
+
+4. **Data Visualization**:
+   - Visualize distribution of numeric variables using histograms, box plots.
+   - Categorical variables can be visualized with bar charts or pie charts to understand their distribution better.
+
+5. **Correlation Analysis**:
+   - Check for correlations between numeric features (e.g., `Invoice Amount` vs `Due Days`) to identify patterns and relationships.
+
+6. **Segmentation/Categorization**:
+   - Categorize clients based on `Group`, `Department`, etc.
+   - Understand revenue head types, nature of services provided.
+
+By leveraging this information, you can design an effective data analysis strategy tailored specifically for your dataset.
+=====================
+
 [OK] Ollama response received
 [WARN] Could not extract JSON from LLM response
 STEP 7 - AFTER ANALYZE
 <class 'NoneType'>
 None
+STEP 1- CALLBACK STARTED
+STEP 3- BEFORE READ_JSON
+DF_JSON TYPE: <class 'str'>
+DF_JSON PREVIEW: {"columns":["Client Name","Marsha","Property Name","Invoice No","Invoice Date","Due Days","Revenue Head","Nature of Services","Service","Invoice Amount","Below 30 Days","Overdue 30 - 60 Days","Overdue
+STEP 4- AFTER READ_JSON
+(4205, 31)
+STEP 5 - SUMMARY CREATED
+{'columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Invoice Date', 'Due Days', 'Revenue Head', 'Nature of Services', 'Service', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO'], 'row_count': 4205, 'numeric_columns': ['Invoice Date', 'Due Days', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount'], 'categorical_columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Revenue Head', 'Nature of Services', 'Service', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO']}
+STEP 6 - BEFORE ANALYZE
+[INFO] Sending data to LLM for analysis...
+BUILD PROMPTS STARTED
+[INFO] Calling Ollama at https://ollama.osourceglobal.com:11434...
+[INFO] Using model: qwen2.5:14b
+[INFO] Testing connectivity (10s timeout)...
+[OK] Ollama server is responding
+[INFO] Sending analysis request (timeout: 300s)...
 [DEBUG] Response status: 200
+
+===OLLAMA RESPONSE===
+The dataset provided appears to be a financial or accounting dataset for invoices related to software services. The data is structured as a pandas DataFrame, containing numerous columns that describe various aspects of the invoice and its associated properties.
+
+### Key Columns:
+
+- **Client Name**: The name of the client company.
+- **Property Name**: The specific property (e.g., hotel) where the service is provided.
+- **Invoice No**: A unique identifier for each invoice.
+- **Invoice Date**: The date when the invoice was issued.
+- **Due Days**: Number of days overdue or due within 30 days from the invoice date.
+- **Revenue Head**, **Nature of Services**, and **Service**: Details about the type of service being provided (e.g., DMS, Recon Tool).
+- **Invoice Amount**: Total amount billed in the invoice.
+- **Below 30 Days**, **Overdue 30 - 60 Days**, etc.: Indicates overdue status of payments.
+- **Particulars**: Detailed description of the services provided and their associated charges for the period covered by the invoice.
+- **Manager, Partner, Department, Company Group, Group**: Various organizational details indicating which teams or departments are involved in the service provision.
+- **Contact Person Name**: The name of the contact person at the client's end responsible for managing invoices.
+- **Brand Name**: The brand or company under whose umbrella the services might be provided (though it has a high missing value rate).
+- **Project MID**: A unique identifier for each project or contract.
+- **Country**: Country where the service is being provided.
+
+### Summary of Key Insights:
+
+1. **Overdue Payments**:
+   - There are various columns tracking overdue payments, which help in identifying invoices that require follow-up due to delayed payments (e.g., Below 30 Days, Overdue 60 - 180 Days).
+
+2. **Service and Revenue Head Details**:
+   - Specific services like DMS (Document Management System), Recon Tool, etc., are provided with their nature of service as either Export or Local.
+   
+3. **Organizational Information**:
+   - Manager, Partner, Department details help in tracking which internal teams are responsible for servicing each invoice.
+
+4. **Contact Person Details**:
+   - Useful for follow-ups and resolving any issues directly with the client's contact person.
+
+5. **Project Management**:
+   - Project MID provides a unique identifier to track projects efficiently and ensures that all invoices related to a specific project can be grouped together.
+
+6. **Geographical Distribution**:
+   - Country details indicate where services are being provided, which is crucial for geographical analysis and compliance with local regulations or tax requirements.
+
+### Potential Analysis:
+
+- **Financial Analysis**: Analyze the total revenue generated by different types of services (DMS, Recon Tool), regions/countries, or specific clients.
+  
+- **Payment Tracking**: Identify overdue invoices to prioritize follow-ups and reduce outstanding balances. 
+
+- **Service Quality Improvement**: Use feedback from contact persons or managers to improve service quality and customer satisfaction.
+
+This dataset is useful for managing a portfolio of software services across multiple clients in different geographical locations, providing insights into payment trends, revenue streams, and organizational performance.
+=====================
+
 [OK] Ollama response received
 [WARN] Could not extract JSON from LLM response
 STEP 7 - AFTER ANALYZE
