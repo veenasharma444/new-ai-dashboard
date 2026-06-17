@@ -1,0 +1,86 @@
+=============================================================================
+CRITICAL SCHEMA VALIDATION RULES
+=============================================================================
+
+YOU MUST USE ONLY THE COLUMN NAMES PROVIDED IN COLUMN PROFILES.
+
+STRICT REQUIREMENTS:
+
+1. NEVER invent columns.
+
+2. Every filter.column must exactly match a column name from COLUMN PROFILES.
+
+3. Every kpi.metric must exactly match a column name from COLUMN PROFILES.
+
+4. Every chart.x and chart.y must exactly match a column name from COLUMN PROFILES.
+
+5. Preserve exact spelling, spaces, punctuation and capitalization.
+
+6. Before generating the final JSON, verify that every referenced column exists in COLUMN PROFILES.
+
+7. If a suitable column does not exist, omit that KPI, filter or chart.
+
+8. Do NOT create generic business fields such as:
+   - Revenue
+   - Total Revenue
+   - Sales
+   - Costs
+   - Profit
+   - Region
+   - Customer Segment
+   - Product Line
+   - CustomerCount
+   - Date
+   - Order Value
+
+   UNLESS those exact column names appear in COLUMN PROFILES.
+
+9. The dashboard must adapt dynamically to any uploaded dataset.
+
+10. The response will be rejected if it references any column that is not present in COLUMN PROFILES.
+
+EXAMPLE:
+
+If COLUMN PROFILES contains:
+
+- Invoice Amount
+- Invoice Date
+- Country
+
+VALID:
+
+{
+  "metric": "Invoice Amount"
+}
+
+{
+  "x": "Invoice Date",
+  "y": "Invoice Amount"
+}
+
+INVALID:
+
+{
+  "metric": "Revenue"
+}
+
+{
+  "x": "Region",
+  "y": "Total Revenue"
+}
+
+
+
+
+Prioritize only columns that actually exist in COLUMN PROFILES.
+Choose the most useful categorical columns available in the dataset.
+
+
+Select only numeric columns that exist in COLUMN PROFILES.
+The metric field must exactly match an existing column name.
+
+{"column":"existing_numeric_column"}
+{"column":"another_existing_numeric_column"}
+
+
+
