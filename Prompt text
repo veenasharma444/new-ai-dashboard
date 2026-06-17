@@ -1,86 +1,347 @@
-=============================================================================
-CRITICAL SCHEMA VALIDATION RULES
-=============================================================================
+(venv) D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard>python dashboard.py
+[OK] Loading active user upload: .cache/user_uploads\20260617-150455-20450b82.pkl
+[OK] Loaded 4,205 rows x 31 cols from user upload
+  - Client Name: categorical (cardinality=1202, missing=0.2%)
+  - Marsha: categorical (cardinality=555, missing=57.6%)
+  - Property Name: categorical (cardinality=451, missing=77.3%)
+  - Invoice No: categorical (cardinality=4198, missing=0.2%)
+  - Invoice Date: temporal (cardinality=528, missing=0.2%)
+  - Due Days: numeric (cardinality=528, missing=0.2%)
+  - Revenue Head: categorical (cardinality=26, missing=8.3%)
+  - Nature of Services: categorical (cardinality=6, missing=8.3%)
+  - Service: categorical (cardinality=48, missing=0.2%)
+  - Invoice Amount: numeric (cardinality=2017, missing=0.1%)
+  - Below 30 Days: numeric (cardinality=843, missing=0.1%)
+  - Overdue 30 - 60 Days: numeric (cardinality=440, missing=0.2%)
+  - Overdue 60 - 180 Days: numeric (cardinality=502, missing=0.2%)
+  - Overdue Above 180 Days: numeric (cardinality=249, missing=0.2%)
+  - Above 1 year: numeric (cardinality=292, missing=0.2%)
+  - Balance Collection Amount: numeric (cardinality=401, missing=0.2%)
+  - Credit Note Issued: numeric (cardinality=4, missing=0.2%)
+  - Balance Amount: numeric (cardinality=2376, missing=0.2%)
+  - Unnamed: 18: numeric (cardinality=173, missing=79.5%)
+  - Forex Balance Amount: numeric (cardinality=209, missing=0.2%)
+  - Particulars: categorical (cardinality=3881, missing=0.2%)
+  - Manager: categorical (cardinality=79, missing=0.2%)
+  - Partner: categorical (cardinality=10, missing=0.2%)
+  - Department: categorical (cardinality=8, missing=0.2%)
+  - Company Group: categorical (cardinality=5, missing=0.2%)
+  - Group: categorical (cardinality=275, missing=0.2%)
+  - Contact Person Name: categorical (cardinality=1194, missing=8.7%)
+  - Brand Name: categorical (cardinality=19, missing=98.1%)
+  - Project MID: categorical (cardinality=1881, missing=10.2%)
+  - Country: categorical (cardinality=43, missing=0.2%)
+  - GST NO: numeric (cardinality=569, missing=0.2%)
+[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
 
-YOU MUST USE ONLY THE COLUMN NAMES PROVIDED IN COLUMN PROFILES.
+[INFO] Phase 1-2: Generating auto-layout...
+[OK] Generated comprehensive dashboard:
+  - Filters: 5
+  - KPIs: 4
+  - Charts: 12 (analyzing all column types)
+  - Layout: 3-col
+[OK] Auto-generated 12 charts, 5 filters, 4 KPIs
 
-STRICT REQUIREMENTS:
+[WARN] Data Quality Issues:
+  - Marsha has 57.6% missing values
+  - Property Name has 77.3% missing values
+  - Unnamed: 18 has 79.5% missing values
+  - Brand Name has 98.1% missing values
+  - Due Days contains outliers (range: (3.0, 2180.0))
+  - Invoice Amount contains outliers (range: (0.0, 4588996.0))
+  - Below 30 Days contains outliers (range: (0.0, 4588996.0))
+  - Overdue 30 - 60 Days contains outliers (range: (0.0, 3466202.0))
+  - Overdue 60 - 180 Days contains outliers (range: (0.0, 1588918.98))
+  - Overdue Above 180 Days contains outliers (range: (0.0, 955800.0))
+  - Above 1 year contains outliers (range: (0.0, 575250.0))
+  - Balance Collection Amount contains outliers (range: (-3460974.0, 0.0))
+  - Credit Note Issued contains outliers (range: (-59590.0, 0.0))
+  - Balance Amount contains outliers (range: (-325914.44, 4568009.0))
+  - Unnamed: 18 contains outliers (range: (-91.7922933333333, 122.54))
+  - Forex Balance Amount contains outliers (range: (-3690.0, 17809.0))
 
-1. NEVER invent columns.
+[OK] Found llm_config.json at: llm_config.json
+[OK] Loaded LLM config: provider=ollama
 
-2. Every filter.column must exactly match a column name from COLUMN PROFILES.
+[INFO] Phase 3: Analyzing with LLM...
+[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
+[INFO] Creating LLM provider and analyzer...
+[OK] LLM analyzer created successfully
+[INFO] Running startup LLM analysis...
+[INFO] Sending data to LLM for analysis...
+[ERROR] LLM analysis failed: '\n  "metric"'
+[WARN] LLM returned empty result
+[OK] Chart analyzer initialized
 
-3. Every kpi.metric must exactly match a column name from COLUMN PROFILES.
+[INFO] Pre-initializing store data...
+[OK] Store data pre-initialized
+PAGE_CONFIG LOADED
+[OK] Loading active user upload: .cache/user_uploads\20260617-150455-20450b82.pkl
+[OK] Loaded 4,205 rows x 31 cols from user upload
+  - Client Name: categorical (cardinality=1202, missing=0.2%)
+  - Marsha: categorical (cardinality=555, missing=57.6%)
+  - Property Name: categorical (cardinality=451, missing=77.3%)
+  - Invoice No: categorical (cardinality=4198, missing=0.2%)
+  - Invoice Date: temporal (cardinality=528, missing=0.2%)
+  - Due Days: numeric (cardinality=528, missing=0.2%)
+  - Revenue Head: categorical (cardinality=26, missing=8.3%)
+  - Nature of Services: categorical (cardinality=6, missing=8.3%)
+  - Service: categorical (cardinality=48, missing=0.2%)
+  - Invoice Amount: numeric (cardinality=2017, missing=0.1%)
+  - Below 30 Days: numeric (cardinality=843, missing=0.1%)
+  - Overdue 30 - 60 Days: numeric (cardinality=440, missing=0.2%)
+  - Overdue 60 - 180 Days: numeric (cardinality=502, missing=0.2%)
+  - Overdue Above 180 Days: numeric (cardinality=249, missing=0.2%)
+  - Above 1 year: numeric (cardinality=292, missing=0.2%)
+  - Balance Collection Amount: numeric (cardinality=401, missing=0.2%)
+  - Credit Note Issued: numeric (cardinality=4, missing=0.2%)
+  - Balance Amount: numeric (cardinality=2376, missing=0.2%)
+  - Unnamed: 18: numeric (cardinality=173, missing=79.5%)
+  - Forex Balance Amount: numeric (cardinality=209, missing=0.2%)
+  - Particulars: categorical (cardinality=3881, missing=0.2%)
+  - Manager: categorical (cardinality=79, missing=0.2%)
+  - Partner: categorical (cardinality=10, missing=0.2%)
+  - Department: categorical (cardinality=8, missing=0.2%)
+  - Company Group: categorical (cardinality=5, missing=0.2%)
+  - Group: categorical (cardinality=275, missing=0.2%)
+  - Contact Person Name: categorical (cardinality=1194, missing=8.7%)
+  - Brand Name: categorical (cardinality=19, missing=98.1%)
+  - Project MID: categorical (cardinality=1881, missing=10.2%)
+  - Country: categorical (cardinality=43, missing=0.2%)
+  - GST NO: numeric (cardinality=569, missing=0.2%)
+[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
 
-4. Every chart.x and chart.y must exactly match a column name from COLUMN PROFILES.
+[INFO] Phase 1-2: Generating auto-layout...
+[OK] Generated comprehensive dashboard:
+  - Filters: 5
+  - KPIs: 4
+  - Charts: 12 (analyzing all column types)
+  - Layout: 3-col
+[OK] Auto-generated 12 charts, 5 filters, 4 KPIs
 
-5. Preserve exact spelling, spaces, punctuation and capitalization.
+[WARN] Data Quality Issues:
+  - Marsha has 57.6% missing values
+  - Property Name has 77.3% missing values
+  - Unnamed: 18 has 79.5% missing values
+  - Brand Name has 98.1% missing values
+  - Due Days contains outliers (range: (3.0, 2180.0))
+  - Invoice Amount contains outliers (range: (0.0, 4588996.0))
+  - Below 30 Days contains outliers (range: (0.0, 4588996.0))
+  - Overdue 30 - 60 Days contains outliers (range: (0.0, 3466202.0))
+  - Overdue 60 - 180 Days contains outliers (range: (0.0, 1588918.98))
+  - Overdue Above 180 Days contains outliers (range: (0.0, 955800.0))
+  - Above 1 year contains outliers (range: (0.0, 575250.0))
+  - Balance Collection Amount contains outliers (range: (-3460974.0, 0.0))
+  - Credit Note Issued contains outliers (range: (-59590.0, 0.0))
+  - Balance Amount contains outliers (range: (-325914.44, 4568009.0))
+  - Unnamed: 18 contains outliers (range: (-91.7922933333333, 122.54))
+  - Forex Balance Amount contains outliers (range: (-3690.0, 17809.0))
 
-6. Before generating the final JSON, verify that every referenced column exists in COLUMN PROFILES.
+[OK] Found llm_config.json at: llm_config.json
+[OK] Loaded LLM config: provider=ollama
 
-7. If a suitable column does not exist, omit that KPI, filter or chart.
+[INFO] Phase 3: Analyzing with LLM...
+[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
+[INFO] Creating LLM provider and analyzer...
+[OK] LLM analyzer created successfully
+[INFO] Running startup LLM analysis...
+[INFO] Sending data to LLM for analysis...
+[ERROR] LLM analysis failed: '\n  "metric"'
+[WARN] LLM returned empty result
+[OK] Chart analyzer initialized
 
-8. Do NOT create generic business fields such as:
-   - Revenue
-   - Total Revenue
-   - Sales
-   - Costs
-   - Profit
-   - Region
-   - Customer Segment
-   - Product Line
-   - CustomerCount
-   - Date
-   - Order Value
+[INFO] Pre-initializing store data...
+[OK] Store data pre-initialized
+Dash is running on http://0.0.0.0:8050/
 
-   UNLESS those exact column names appear in COLUMN PROFILES.
+ * Serving Flask app 'dashboard'
+ * Debug mode: on
+[OK] Loading active user upload: .cache/user_uploads\20260617-150455-20450b82.pkl
+[OK] Loaded 4,205 rows x 31 cols from user upload
+  - Client Name: categorical (cardinality=1202, missing=0.2%)
+  - Marsha: categorical (cardinality=555, missing=57.6%)
+  - Property Name: categorical (cardinality=451, missing=77.3%)
+  - Invoice No: categorical (cardinality=4198, missing=0.2%)
+  - Invoice Date: temporal (cardinality=528, missing=0.2%)
+  - Due Days: numeric (cardinality=528, missing=0.2%)
+  - Revenue Head: categorical (cardinality=26, missing=8.3%)
+  - Nature of Services: categorical (cardinality=6, missing=8.3%)
+  - Service: categorical (cardinality=48, missing=0.2%)
+  - Invoice Amount: numeric (cardinality=2017, missing=0.1%)
+  - Below 30 Days: numeric (cardinality=843, missing=0.1%)
+  - Overdue 30 - 60 Days: numeric (cardinality=440, missing=0.2%)
+  - Overdue 60 - 180 Days: numeric (cardinality=502, missing=0.2%)
+  - Overdue Above 180 Days: numeric (cardinality=249, missing=0.2%)
+  - Above 1 year: numeric (cardinality=292, missing=0.2%)
+  - Balance Collection Amount: numeric (cardinality=401, missing=0.2%)
+  - Credit Note Issued: numeric (cardinality=4, missing=0.2%)
+  - Balance Amount: numeric (cardinality=2376, missing=0.2%)
+  - Unnamed: 18: numeric (cardinality=173, missing=79.5%)
+  - Forex Balance Amount: numeric (cardinality=209, missing=0.2%)
+  - Particulars: categorical (cardinality=3881, missing=0.2%)
+  - Manager: categorical (cardinality=79, missing=0.2%)
+  - Partner: categorical (cardinality=10, missing=0.2%)
+  - Department: categorical (cardinality=8, missing=0.2%)
+  - Company Group: categorical (cardinality=5, missing=0.2%)
+  - Group: categorical (cardinality=275, missing=0.2%)
+  - Contact Person Name: categorical (cardinality=1194, missing=8.7%)
+  - Brand Name: categorical (cardinality=19, missing=98.1%)
+  - Project MID: categorical (cardinality=1881, missing=10.2%)
+  - Country: categorical (cardinality=43, missing=0.2%)
+  - GST NO: numeric (cardinality=569, missing=0.2%)
+[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
 
-9. The dashboard must adapt dynamically to any uploaded dataset.
+[INFO] Phase 1-2: Generating auto-layout...
+[OK] Generated comprehensive dashboard:
+  - Filters: 5
+  - KPIs: 4
+  - Charts: 12 (analyzing all column types)
+  - Layout: 3-col
+[OK] Auto-generated 12 charts, 5 filters, 4 KPIs
 
-10. The response will be rejected if it references any column that is not present in COLUMN PROFILES.
+[WARN] Data Quality Issues:
+  - Marsha has 57.6% missing values
+  - Property Name has 77.3% missing values
+  - Unnamed: 18 has 79.5% missing values
+  - Brand Name has 98.1% missing values
+  - Due Days contains outliers (range: (3.0, 2180.0))
+  - Invoice Amount contains outliers (range: (0.0, 4588996.0))
+  - Below 30 Days contains outliers (range: (0.0, 4588996.0))
+  - Overdue 30 - 60 Days contains outliers (range: (0.0, 3466202.0))
+  - Overdue 60 - 180 Days contains outliers (range: (0.0, 1588918.98))
+  - Overdue Above 180 Days contains outliers (range: (0.0, 955800.0))
+  - Above 1 year contains outliers (range: (0.0, 575250.0))
+  - Balance Collection Amount contains outliers (range: (-3460974.0, 0.0))
+  - Credit Note Issued contains outliers (range: (-59590.0, 0.0))
+  - Balance Amount contains outliers (range: (-325914.44, 4568009.0))
+  - Unnamed: 18 contains outliers (range: (-91.7922933333333, 122.54))
+  - Forex Balance Amount contains outliers (range: (-3690.0, 17809.0))
 
-EXAMPLE:
+[OK] Found llm_config.json at: llm_config.json
+[OK] Loaded LLM config: provider=ollama
 
-If COLUMN PROFILES contains:
+[INFO] Phase 3: Analyzing with LLM...
+[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
+[INFO] Creating LLM provider and analyzer...
+[OK] LLM analyzer created successfully
+[INFO] Running startup LLM analysis...
+[INFO] Sending data to LLM for analysis...
+[ERROR] LLM analysis failed: '\n  "metric"'
+[WARN] LLM returned empty result
+[OK] Chart analyzer initialized
 
-- Invoice Amount
-- Invoice Date
-- Country
+[INFO] Pre-initializing store data...
+[OK] Store data pre-initialized
+PAGE_CONFIG LOADED
+[OK] Loading active user upload: .cache/user_uploads\20260617-150455-20450b82.pkl
+[OK] Loaded 4,205 rows x 31 cols from user upload
+  - Client Name: categorical (cardinality=1202, missing=0.2%)
+  - Marsha: categorical (cardinality=555, missing=57.6%)
+  - Property Name: categorical (cardinality=451, missing=77.3%)
+  - Invoice No: categorical (cardinality=4198, missing=0.2%)
+  - Invoice Date: temporal (cardinality=528, missing=0.2%)
+  - Due Days: numeric (cardinality=528, missing=0.2%)
+  - Revenue Head: categorical (cardinality=26, missing=8.3%)
+  - Nature of Services: categorical (cardinality=6, missing=8.3%)
+  - Service: categorical (cardinality=48, missing=0.2%)
+  - Invoice Amount: numeric (cardinality=2017, missing=0.1%)
+  - Below 30 Days: numeric (cardinality=843, missing=0.1%)
+  - Overdue 30 - 60 Days: numeric (cardinality=440, missing=0.2%)
+  - Overdue 60 - 180 Days: numeric (cardinality=502, missing=0.2%)
+  - Overdue Above 180 Days: numeric (cardinality=249, missing=0.2%)
+  - Above 1 year: numeric (cardinality=292, missing=0.2%)
+  - Balance Collection Amount: numeric (cardinality=401, missing=0.2%)
+  - Credit Note Issued: numeric (cardinality=4, missing=0.2%)
+  - Balance Amount: numeric (cardinality=2376, missing=0.2%)
+  - Unnamed: 18: numeric (cardinality=173, missing=79.5%)
+  - Forex Balance Amount: numeric (cardinality=209, missing=0.2%)
+  - Particulars: categorical (cardinality=3881, missing=0.2%)
+  - Manager: categorical (cardinality=79, missing=0.2%)
+  - Partner: categorical (cardinality=10, missing=0.2%)
+  - Department: categorical (cardinality=8, missing=0.2%)
+  - Company Group: categorical (cardinality=5, missing=0.2%)
+  - Group: categorical (cardinality=275, missing=0.2%)
+  - Contact Person Name: categorical (cardinality=1194, missing=8.7%)
+  - Brand Name: categorical (cardinality=19, missing=98.1%)
+  - Project MID: categorical (cardinality=1881, missing=10.2%)
+  - Country: categorical (cardinality=43, missing=0.2%)
+  - GST NO: numeric (cardinality=569, missing=0.2%)
+[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
 
-VALID:
+[INFO] Phase 1-2: Generating auto-layout...
+[OK] Generated comprehensive dashboard:
+  - Filters: 5
+  - KPIs: 4
+  - Charts: 12 (analyzing all column types)
+  - Layout: 3-col
+[OK] Auto-generated 12 charts, 5 filters, 4 KPIs
 
-{
-  "metric": "Invoice Amount"
-}
+[WARN] Data Quality Issues:
+  - Marsha has 57.6% missing values
+  - Property Name has 77.3% missing values
+  - Unnamed: 18 has 79.5% missing values
+  - Brand Name has 98.1% missing values
+  - Due Days contains outliers (range: (3.0, 2180.0))
+  - Invoice Amount contains outliers (range: (0.0, 4588996.0))
+  - Below 30 Days contains outliers (range: (0.0, 4588996.0))
+  - Overdue 30 - 60 Days contains outliers (range: (0.0, 3466202.0))
+  - Overdue 60 - 180 Days contains outliers (range: (0.0, 1588918.98))
+  - Overdue Above 180 Days contains outliers (range: (0.0, 955800.0))
+  - Above 1 year contains outliers (range: (0.0, 575250.0))
+  - Balance Collection Amount contains outliers (range: (-3460974.0, 0.0))
+  - Credit Note Issued contains outliers (range: (-59590.0, 0.0))
+  - Balance Amount contains outliers (range: (-325914.44, 4568009.0))
+  - Unnamed: 18 contains outliers (range: (-91.7922933333333, 122.54))
+  - Forex Balance Amount contains outliers (range: (-3690.0, 17809.0))
 
-{
-  "x": "Invoice Date",
-  "y": "Invoice Amount"
-}
+[OK] Found llm_config.json at: llm_config.json
+[OK] Loaded LLM config: provider=ollama
 
-INVALID:
+[INFO] Phase 3: Analyzing with LLM...
+[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
+[INFO] Creating LLM provider and analyzer...
+[OK] LLM analyzer created successfully
+[INFO] Running startup LLM analysis...
+[INFO] Sending data to LLM for analysis...
+[ERROR] LLM analysis failed: '\n  "metric"'
+[WARN] LLM returned empty result
+[OK] Chart analyzer initialized
 
-{
-  "metric": "Revenue"
-}
-
-{
-  "x": "Region",
-  "y": "Total Revenue"
-}
-
-
-
-
-Prioritize only columns that actually exist in COLUMN PROFILES.
-Choose the most useful categorical columns available in the dataset.
-
-
-Select only numeric columns that exist in COLUMN PROFILES.
-The metric field must exactly match an existing column name.
-
-{"column":"existing_numeric_column"}
-{"column":"another_existing_numeric_column"}
-
-
-
+[INFO] Pre-initializing store data...
+[OK] Store data pre-initialized
+ Signin clicked 0 None
+[OK] App DB connected: 192.168.202.114:5432
+ Signin clicked 1 veenash
+[AUTH] Login attempt: veenash
+[OK] Login success: veenash
+[AUTH] Login attempt: veenash
+[OK] Login success: veenash
+[OK] Upload saved: 20260617-161348-9f451350 (4,205 rows)
+STEP 1- CALLBACK STARTED
+STEP 3- BEFORE READ_JSON
+DF_JSON TYPE: <class 'str'>
+DF_JSON PREVIEW: {"columns":["Client Name","Marsha","Property Name","Invoice No","Invoice Date","Due Days","Revenue Head","Nature of Services","Service","Invoice Amount","Below 30 Days","Overdue 30 - 60 Days","Overdue
+STEP 4- AFTER READ_JSON
+(4205, 31)
+STEP 5 - SUMMARY CREATED
+{'columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Invoice Date', 'Due Days', 'Revenue Head', 'Nature of Services', 'Service', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO'], 'row_count': 4205, 'numeric_columns': ['Invoice Date', 'Due Days', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount'], 'categorical_columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Revenue Head', 'Nature of Services', 'Service', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO']}
+STEP 6 - BEFORE ANALYZE
+[INFO] Sending data to LLM for analysis...
+[ERROR] LLM analysis failed: '\n  "metric"'
+STEP 7 - AFTER ANALYZE
+<class 'NoneType'>
+None
+STEP 1- CALLBACK STARTED
+STEP 3- BEFORE READ_JSON
+DF_JSON TYPE: <class 'str'>
+DF_JSON PREVIEW: {"columns":["Client Name","Marsha","Property Name","Invoice No","Invoice Date","Due Days","Revenue Head","Nature of Services","Service","Invoice Amount","Below 30 Days","Overdue 30 - 60 Days","Overdue
+STEP 4- AFTER READ_JSON
+(4205, 31)
+STEP 5 - SUMMARY CREATED
+{'columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Invoice Date', 'Due Days', 'Revenue Head', 'Nature of Services', 'Service', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO'], 'row_count': 4205, 'numeric_columns': ['Invoice Date', 'Due Days', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount'], 'categorical_columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Revenue Head', 'Nature of Services', 'Service', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO']}
+STEP 6 - BEFORE ANALYZE
+[INFO] Sending data to LLM for analysis...
+[ERROR] LLM analysis failed: '\n  "metric"'
+STEP 7 - AFTER ANALYZE
+<class 'NoneType'>
+None
