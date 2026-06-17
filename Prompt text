@@ -1,4 +1,4 @@
-[OK] Loading active user upload: .cache/user_uploads\20260617-164300-8efe0b19.pkl
+[OK] Loading active user upload: .cache/user_uploads\20260617-171415-cec9156b.pkl
 [OK] Loaded 4,205 rows x 31 cols from user upload
   - Client Name: categorical (cardinality=1202, missing=0.2%)
   - Marsha: categorical (cardinality=555, missing=57.6%)
@@ -75,7 +75,7 @@
 [INFO] Pre-initializing store data...
 [OK] Store data pre-initialized
 PAGE_CONFIG LOADED
-[OK] Loading active user upload: .cache/user_uploads\20260617-164300-8efe0b19.pkl
+[OK] Loading active user upload: .cache/user_uploads\20260617-171415-cec9156b.pkl
 [OK] Loaded 4,205 rows x 31 cols from user upload
   - Client Name: categorical (cardinality=1202, missing=0.2%)
   - Marsha: categorical (cardinality=555, missing=57.6%)
@@ -155,7 +155,7 @@ Dash is running on http://0.0.0.0:8050/
 
  * Serving Flask app 'dashboard'
  * Debug mode: on
-[OK] Loading active user upload: .cache/user_uploads\20260617-164300-8efe0b19.pkl
+[OK] Loading active user upload: .cache/user_uploads\20260617-171415-cec9156b.pkl
 [OK] Loaded 4,205 rows x 31 cols from user upload
   - Client Name: categorical (cardinality=1202, missing=0.2%)
   - Marsha: categorical (cardinality=555, missing=57.6%)
@@ -232,7 +232,7 @@ Dash is running on http://0.0.0.0:8050/
 [INFO] Pre-initializing store data...
 [OK] Store data pre-initialized
 PAGE_CONFIG LOADED
-[OK] Loading active user upload: .cache/user_uploads\20260617-164300-8efe0b19.pkl
+[OK] Loading active user upload: .cache/user_uploads\20260617-171415-cec9156b.pkl
 [OK] Loaded 4,205 rows x 31 cols from user upload
   - Client Name: categorical (cardinality=1202, missing=0.2%)
   - Marsha: categorical (cardinality=555, missing=57.6%)
@@ -315,15 +315,21 @@ PAGE_CONFIG LOADED
 [OK] Login success: veenash
 [AUTH] Login attempt: veenash
 [OK] Login success: veenash
-[OK] Upload saved: 20260617-171415-cec9156b (4,205 rows)
+[OK] Upload saved: 20260617-174348-3f90c0d5 (4,205 rows)
+[INFO] Selected table = company_master
+[INFO] Loading table: company_master
+[OK] Loaded 5 rows
+[INFO] Selected table = historical_invoices
+[INFO] Loading table: historical_invoices
+[OK] Loaded 1 rows
 STEP 1- CALLBACK STARTED
 STEP 3- BEFORE READ_JSON
 DF_JSON TYPE: <class 'str'>
-DF_JSON PREVIEW: {"columns":["Client Name","Marsha","Property Name","Invoice No","Invoice Date","Due Days","Revenue Head","Nature of Services","Service","Invoice Amount","Below 30 Days","Overdue 30 - 60 Days","Overdue
+DF_JSON PREVIEW: {"columns":["bar_code","vendor_code","company_id","invoice_no","invoice_date","basic_amt","igst","cgst","sgst","tds_rate","tds_amt","advance_adjusted","location","cohance_gstn"],"index":[0],"data":[["
 STEP 4- AFTER READ_JSON
-(4205, 31)
+(1, 14)
 STEP 5 - SUMMARY CREATED
-{'columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Invoice Date', 'Due Days', 'Revenue Head', 'Nature of Services', 'Service', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO'], 'row_count': 4205, 'numeric_columns': ['Invoice Date', 'Due Days', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount'], 'categorical_columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Revenue Head', 'Nature of Services', 'Service', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO']}
+{'columns': ['bar_code', 'vendor_code', 'company_id', 'invoice_no', 'invoice_date', 'basic_amt', 'igst', 'cgst', 'sgst', 'tds_rate', 'tds_amt', 'advance_adjusted', 'location', 'cohance_gstn'], 'row_count': 1, 'numeric_columns': ['company_id', 'basic_amt', 'igst', 'cgst', 'sgst', 'tds_rate', 'tds_amt', 'advance_adjusted'], 'categorical_columns': ['bar_code', 'vendor_code', 'invoice_no', 'invoice_date', 'location', 'cohance_gstn']}
 STEP 6 - BEFORE ANALYZE
 [INFO] Sending data to LLM for analysis...
 [ERROR] LLM analysis failed: '\n  "metric"'
@@ -333,56 +339,151 @@ None
 STEP 1- CALLBACK STARTED
 STEP 3- BEFORE READ_JSON
 DF_JSON TYPE: <class 'str'>
-DF_JSON PREVIEW: {"columns":["Client Name","Marsha","Property Name","Invoice No","Invoice Date","Due Days","Revenue Head","Nature of Services","Service","Invoice Amount","Below 30 Days","Overdue 30 - 60 Days","Overdue
+DF_JSON PREVIEW: {"columns":["bar_code","vendor_code","company_id","invoice_no","invoice_date","basic_amt","igst","cgst","sgst","tds_rate","tds_amt","advance_adjusted","location","cohance_gstn"],"index":[0],"data":[["
 STEP 4- AFTER READ_JSON
-(4205, 31)
+(1, 14)
 STEP 5 - SUMMARY CREATED
-{'columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Invoice Date', 'Due Days', 'Revenue Head', 'Nature of Services', 'Service', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO'], 'row_count': 4205, 'numeric_columns': ['Invoice Date', 'Due Days', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount'], 'categorical_columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Revenue Head', 'Nature of Services', 'Service', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO']}
+{'columns': ['bar_code', 'vendor_code', 'company_id', 'invoice_no', 'invoice_date', 'basic_amt', 'igst', 'cgst', 'sgst', 'tds_rate', 'tds_amt', 'advance_adjusted', 'location', 'cohance_gstn'], 'row_count': 1, 'numeric_columns': ['company_id', 'basic_amt', 'igst', 'cgst', 'sgst', 'tds_rate', 'tds_amt', 'advance_adjusted'], 'categorical_columns': ['bar_code', 'vendor_code', 'invoice_no', 'invoice_date', 'location', 'cohance_gstn']}
 STEP 6 - BEFORE ANALYZE
 [INFO] Sending data to LLM for analysis...
 [ERROR] LLM analysis failed: '\n  "metric"'
 STEP 7 - AFTER ANALYZE
 <class 'NoneType'>
 None
-STEP 1- CALLBACK STARTED
-STEP 3- BEFORE READ_JSON
-DF_JSON TYPE: <class 'str'>
-DF_JSON PREVIEW: {"columns":["Client Name","Marsha","Property Name","Invoice No","Invoice Date","Due Days","Revenue Head","Nature of Services","Service","Invoice Amount","Below 30 Days","Overdue 30 - 60 Days","Overdue
-STEP 4- AFTER READ_JSON
-(4205, 31)
-STEP 5 - SUMMARY CREATED
-{'columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Invoice Date', 'Due Days', 'Revenue Head', 'Nature of Services', 'Service', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO'], 'row_count': 4205, 'numeric_columns': ['Invoice Date', 'Due Days', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount'], 'categorical_columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Revenue Head', 'Nature of Services', 'Service', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO']}
-STEP 6 - BEFORE ANALYZE
+
+[DEBUG] update_kpi_on_filter called
+[CHARTS] Generating charts for 1 rows
+[DEBUG] DataFrame loaded from cache: 1 rows x 14 cols
+[DEBUG] KPI 'advance_adjusted' (sum): 0.0 (type=float64)
+[CHARTS] Found 0 categorical, 0 numeric columns
+[DEBUG] KPI advance_adjusted formatted: 0.0000
+[WARN] ai_suggestions is <class 'str'>. Skipping AI charts.
+[DEBUG] KPI 'bar_code' (count): 1 (type=int64)
+[CHARTS] Built 0 charts — generating insights...
+[DEBUG] KPI bar_code formatted: 1
+[OK] Loading active user upload: .cache/user_uploads\20260617-174535-aa588115.pkl
+[OK] Loaded 1 rows x 14 cols from user upload
+  - bar_code: numeric (cardinality=1, missing=0.0%)
+  - vendor_code: numeric (cardinality=1, missing=0.0%)
+  - company_id: numeric (cardinality=1, missing=0.0%)
+  - invoice_no: numeric (cardinality=1, missing=0.0%)
+  - invoice_date: temporal (cardinality=1, missing=0.0%)
+  - basic_amt: numeric (cardinality=1, missing=0.0%)
+  - igst: numeric (cardinality=1, missing=0.0%)
+  - cgst: numeric (cardinality=1, missing=0.0%)
+  - sgst: numeric (cardinality=1, missing=0.0%)
+  - tds_rate: numeric (cardinality=1, missing=0.0%)
+  - tds_amt: numeric (cardinality=1, missing=0.0%)
+  - advance_adjusted: numeric (cardinality=1, missing=0.0%)
+  - location: categorical (cardinality=1, missing=0.0%)
+  - cohance_gstn: numeric (cardinality=1, missing=0.0%)
+[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
+
+[INFO] Phase 1-2: Generating auto-layout...
+[OK] Generated comprehensive dashboard:
+  - Filters: 0
+  - KPIs: 0
+  - Charts: 1 (analyzing all column types)
+  - Layout: 1-col
+[OK] Auto-generated 1 charts, 0 filters, 0 KPIs
+
+[WARN] Data Quality Issues:
+  - bar_code has only one unique value
+  - vendor_code has only one unique value
+  - company_id has only one unique value
+  - invoice_no has only one unique value
+  - invoice_date has only one unique value
+  - basic_amt has only one unique value
+  - igst has only one unique value
+  - cgst has only one unique value
+  - sgst has only one unique value
+  - tds_rate has only one unique value
+  - tds_amt has only one unique value
+  - advance_adjusted has only one unique value
+  - location has only one unique value
+  - cohance_gstn has only one unique value
+
+[OK] Found llm_config.json at: llm_config.json
+[OK] Loaded LLM config: provider=ollama
+
+[INFO] Phase 3: Analyzing with LLM...
+[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
+[INFO] Creating LLM provider and analyzer...
+[OK] LLM analyzer created successfully
+[INFO] Running startup LLM analysis...
 [INFO] Sending data to LLM for analysis...
 [ERROR] LLM analysis failed: '\n  "metric"'
-STEP 7 - AFTER ANALYZE
-<class 'NoneType'>
-None
-STEP 1- CALLBACK STARTED
-STEP 3- BEFORE READ_JSON
-DF_JSON TYPE: <class 'str'>
-DF_JSON PREVIEW: {"columns":["Client Name","Marsha","Property Name","Invoice No","Invoice Date","Due Days","Revenue Head","Nature of Services","Service","Invoice Amount","Below 30 Days","Overdue 30 - 60 Days","Overdue
-STEP 4- AFTER READ_JSON
-(4205, 31)
-STEP 5 - SUMMARY CREATED
-{'columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Invoice Date', 'Due Days', 'Revenue Head', 'Nature of Services', 'Service', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO'], 'row_count': 4205, 'numeric_columns': ['Invoice Date', 'Due Days', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount'], 'categorical_columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Revenue Head', 'Nature of Services', 'Service', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO']}
-STEP 6 - BEFORE ANALYZE
+[WARN] LLM returned empty result
+[OK] Chart analyzer initialized
+
+[INFO] Pre-initializing store data...
+[OK] Store data pre-initialized
+PAGE_CONFIG LOADED
+[OK] Loading active user upload: .cache/user_uploads\20260617-174535-aa588115.pkl
+[OK] Loaded 1 rows x 14 cols from user upload
+  - bar_code: numeric (cardinality=1, missing=0.0%)
+  - vendor_code: numeric (cardinality=1, missing=0.0%)
+  - company_id: numeric (cardinality=1, missing=0.0%)
+  - invoice_no: numeric (cardinality=1, missing=0.0%)
+  - invoice_date: temporal (cardinality=1, missing=0.0%)
+  - basic_amt: numeric (cardinality=1, missing=0.0%)
+  - igst: numeric (cardinality=1, missing=0.0%)
+  - cgst: numeric (cardinality=1, missing=0.0%)
+  - sgst: numeric (cardinality=1, missing=0.0%)
+  - tds_rate: numeric (cardinality=1, missing=0.0%)
+  - tds_amt: numeric (cardinality=1, missing=0.0%)
+  - advance_adjusted: numeric (cardinality=1, missing=0.0%)
+  - location: categorical (cardinality=1, missing=0.0%)
+  - cohance_gstn: numeric (cardinality=1, missing=0.0%)
+[OK] Profiles cached to D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard\.cache\profiles.json
+
+[INFO] Phase 1-2: Generating auto-layout...
+[OK] Generated comprehensive dashboard:
+  - Filters: 0
+  - KPIs: 0
+  - Charts: 1 (analyzing all column types)
+  - Layout: 1-col
+[OK] Auto-generated 1 charts, 0 filters, 0 KPIs
+
+[WARN] Data Quality Issues:
+  - bar_code has only one unique value
+  - vendor_code has only one unique value
+  - company_id has only one unique value
+  - invoice_no has only one unique value
+  - invoice_date has only one unique value
+  - basic_amt has only one unique value
+  - igst has only one unique value
+  - cgst has only one unique value
+  - sgst has only one unique value
+  - tds_rate has only one unique value
+  - tds_amt has only one unique value
+  - advance_adjusted has only one unique value
+  - location has only one unique value
+  - cohance_gstn has only one unique value
+
+[OK] Found llm_config.json at: llm_config.json
+[OK] Loaded LLM config: provider=ollama
+
+[INFO] Phase 3: Analyzing with LLM...
+[INFO] Using provider: ollama at https://ollama.osourceglobal.com:11434
+[INFO] Creating LLM provider and analyzer...
+[OK] LLM analyzer created successfully
+[INFO] Running startup LLM analysis...
 [INFO] Sending data to LLM for analysis...
 [ERROR] LLM analysis failed: '\n  "metric"'
-STEP 7 - AFTER ANALYZE
-<class 'NoneType'>
-None
-STEP 1- CALLBACK STARTED
-STEP 3- BEFORE READ_JSON
-DF_JSON TYPE: <class 'str'>
-DF_JSON PREVIEW: {"columns":["Client Name","Marsha","Property Name","Invoice No","Invoice Date","Due Days","Revenue Head","Nature of Services","Service","Invoice Amount","Below 30 Days","Overdue 30 - 60 Days","Overdue
-STEP 4- AFTER READ_JSON
-(4205, 31)
-STEP 5 - SUMMARY CREATED
-{'columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Invoice Date', 'Due Days', 'Revenue Head', 'Nature of Services', 'Service', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO'], 'row_count': 4205, 'numeric_columns': ['Invoice Date', 'Due Days', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount'], 'categorical_columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Revenue Head', 'Nature of Services', 'Service', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO']}
-STEP 6 - BEFORE ANALYZE
-[INFO] Sending data to LLM for analysis...
-[ERROR] LLM analysis failed: '\n  "metric"'
-STEP 7 - AFTER ANALYZE
-<class 'NoneType'>
-None
+[WARN] LLM returned empty result
+[OK] Chart analyzer initialized
+
+[INFO] Pre-initializing store data...
+[OK] Store data pre-initialized
+
+[DEBUG] update_kpi_on_filter called
+[DEBUG] DataFrame loaded from cache: 1 rows x 14 cols
+[DEBUG] KPI 'advance_adjusted' (sum): 0.0 (type=float64)
+[DEBUG] KPI advance_adjusted formatted: 0.0000
+[DEBUG] KPI 'bar_code' (count): 1 (type=int64)
+[DEBUG] KPI bar_code formatted: 1
+[CHARTS] Generating charts for 1 rows
+[CHARTS] Found 0 categorical, 0 numeric columns
+[WARN] ai_suggestions is <class 'NoneType'>. Skipping AI charts.
+[CHARTS] Built 0 charts — generating insights...
