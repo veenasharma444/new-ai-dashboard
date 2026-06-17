@@ -1,5 +1,3 @@
-(venv) D:\veena.sharma\My Documents\GIT REPOSITORY\AI-Dashboard>python dashboard.py
-[OK] Loading active user upload: .cache/user_uploads\20260617-150455-20450b82.pkl
 [OK] Loaded 4,205 rows x 31 cols from user upload
   - Client Name: categorical (cardinality=1202, missing=0.2%)
   - Marsha: categorical (cardinality=555, missing=57.6%)
@@ -69,14 +67,22 @@
 [OK] LLM analyzer created successfully
 [INFO] Running startup LLM analysis...
 [INFO] Sending data to LLM for analysis...
-[ERROR] LLM analysis failed: '\n  "metric"'
+BUILD PROMPTS STARTED
+[INFO] Calling Ollama at https://ollama.osourceglobal.com:11434...
+[INFO] Using model: qwen2.5:14b
+[INFO] Testing connectivity (10s timeout)...
+[OK] Ollama server is responding
+[INFO] Sending analysis request (timeout: 300s)...
+[DEBUG] Response status: 200
+[OK] Ollama response received
+[WARN] Could not extract JSON from LLM response
 [WARN] LLM returned empty result
 [OK] Chart analyzer initialized
 
 [INFO] Pre-initializing store data...
 [OK] Store data pre-initialized
 PAGE_CONFIG LOADED
-[OK] Loading active user upload: .cache/user_uploads\20260617-150455-20450b82.pkl
+[OK] Loading active user upload: .cache/user_uploads\20260617-161348-9f451350.pkl
 [OK] Loaded 4,205 rows x 31 cols from user upload
   - Client Name: categorical (cardinality=1202, missing=0.2%)
   - Marsha: categorical (cardinality=555, missing=57.6%)
@@ -146,7 +152,15 @@ PAGE_CONFIG LOADED
 [OK] LLM analyzer created successfully
 [INFO] Running startup LLM analysis...
 [INFO] Sending data to LLM for analysis...
-[ERROR] LLM analysis failed: '\n  "metric"'
+BUILD PROMPTS STARTED
+[INFO] Calling Ollama at https://ollama.osourceglobal.com:11434...
+[INFO] Using model: qwen2.5:14b
+[INFO] Testing connectivity (10s timeout)...
+[OK] Ollama server is responding
+[INFO] Sending analysis request (timeout: 300s)...
+[DEBUG] Response status: 200
+[OK] Ollama response received
+[WARN] Could not extract JSON from LLM response
 [WARN] LLM returned empty result
 [OK] Chart analyzer initialized
 
@@ -156,7 +170,7 @@ Dash is running on http://0.0.0.0:8050/
 
  * Serving Flask app 'dashboard'
  * Debug mode: on
-[OK] Loading active user upload: .cache/user_uploads\20260617-150455-20450b82.pkl
+[OK] Loading active user upload: .cache/user_uploads\20260617-161348-9f451350.pkl
 [OK] Loaded 4,205 rows x 31 cols from user upload
   - Client Name: categorical (cardinality=1202, missing=0.2%)
   - Marsha: categorical (cardinality=555, missing=57.6%)
@@ -226,14 +240,22 @@ Dash is running on http://0.0.0.0:8050/
 [OK] LLM analyzer created successfully
 [INFO] Running startup LLM analysis...
 [INFO] Sending data to LLM for analysis...
-[ERROR] LLM analysis failed: '\n  "metric"'
+BUILD PROMPTS STARTED
+[INFO] Calling Ollama at https://ollama.osourceglobal.com:11434...
+[INFO] Using model: qwen2.5:14b
+[INFO] Testing connectivity (10s timeout)...
+[OK] Ollama server is responding
+[INFO] Sending analysis request (timeout: 300s)...
+[DEBUG] Response status: 200
+[OK] Ollama response received
+[WARN] Could not extract JSON from LLM response
 [WARN] LLM returned empty result
 [OK] Chart analyzer initialized
 
 [INFO] Pre-initializing store data...
 [OK] Store data pre-initialized
 PAGE_CONFIG LOADED
-[OK] Loading active user upload: .cache/user_uploads\20260617-150455-20450b82.pkl
+[OK] Loading active user upload: .cache/user_uploads\20260617-161348-9f451350.pkl
 [OK] Loaded 4,205 rows x 31 cols from user upload
   - Client Name: categorical (cardinality=1202, missing=0.2%)
   - Marsha: categorical (cardinality=555, missing=57.6%)
@@ -303,7 +325,15 @@ PAGE_CONFIG LOADED
 [OK] LLM analyzer created successfully
 [INFO] Running startup LLM analysis...
 [INFO] Sending data to LLM for analysis...
-[ERROR] LLM analysis failed: '\n  "metric"'
+BUILD PROMPTS STARTED
+[INFO] Calling Ollama at https://ollama.osourceglobal.com:11434...
+[INFO] Using model: qwen2.5:14b
+[INFO] Testing connectivity (10s timeout)...
+[OK] Ollama server is responding
+[INFO] Sending analysis request (timeout: 300s)...
+[DEBUG] Response status: 200
+[OK] Ollama response received
+[WARN] Could not extract JSON from LLM response
 [WARN] LLM returned empty result
 [OK] Chart analyzer initialized
 
@@ -316,7 +346,7 @@ PAGE_CONFIG LOADED
 [OK] Login success: veenash
 [AUTH] Login attempt: veenash
 [OK] Login success: veenash
-[OK] Upload saved: 20260617-161348-9f451350 (4,205 rows)
+[OK] Upload saved: 20260617-163052-ccb79588 (4,205 rows)
 STEP 1- CALLBACK STARTED
 STEP 3- BEFORE READ_JSON
 DF_JSON TYPE: <class 'str'>
@@ -327,21 +357,37 @@ STEP 5 - SUMMARY CREATED
 {'columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Invoice Date', 'Due Days', 'Revenue Head', 'Nature of Services', 'Service', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO'], 'row_count': 4205, 'numeric_columns': ['Invoice Date', 'Due Days', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount'], 'categorical_columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Revenue Head', 'Nature of Services', 'Service', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO']}
 STEP 6 - BEFORE ANALYZE
 [INFO] Sending data to LLM for analysis...
-[ERROR] LLM analysis failed: '\n  "metric"'
+BUILD PROMPTS STARTED
+[INFO] Calling Ollama at https://ollama.osourceglobal.com:11434...
+[INFO] Using model: qwen2.5:14b
+[INFO] Testing connectivity (10s timeout)...
+[OK] Ollama server is responding
+[INFO] Sending analysis request (timeout: 300s)...
+STEP 1- CALLBACK STARTED
+STEP 3- BEFORE READ_JSON
+DF_JSON TYPE: <class 'str'>
+DF_JSON PREVIEW: {"columns":["Client Name","Marsha","Property Name","Invoice No","Invoice Date","Due Days","Revenue Head","Nature of Services","Service","Invoice Amount","Below 30 Days","Overdue 30 - 60 Days","Overdue
+STEP 4- AFTER READ_JSON
+(4205, 31)
+STEP 5 - SUMMARY CREATED
+{'columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Invoice Date', 'Due Days', 'Revenue Head', 'Nature of Services', 'Service', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO'], 'row_count': 4205, 'numeric_columns': ['Invoice Date', 'Due Days', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount'], 'categorical_columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Revenue Head', 'Nature of Services', 'Service', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO']}
+STEP 6 - BEFORE ANALYZE
+[INFO] Sending data to LLM for analysis...
+BUILD PROMPTS STARTED
+[INFO] Calling Ollama at https://ollama.osourceglobal.com:11434...
+[INFO] Using model: qwen2.5:14b
+[INFO] Testing connectivity (10s timeout)...
+[OK] Ollama server is responding
+[INFO] Sending analysis request (timeout: 300s)...
+[DEBUG] Response status: 200
+[OK] Ollama response received
+[WARN] Could not extract JSON from LLM response
 STEP 7 - AFTER ANALYZE
 <class 'NoneType'>
 None
-STEP 1- CALLBACK STARTED
-STEP 3- BEFORE READ_JSON
-DF_JSON TYPE: <class 'str'>
-DF_JSON PREVIEW: {"columns":["Client Name","Marsha","Property Name","Invoice No","Invoice Date","Due Days","Revenue Head","Nature of Services","Service","Invoice Amount","Below 30 Days","Overdue 30 - 60 Days","Overdue
-STEP 4- AFTER READ_JSON
-(4205, 31)
-STEP 5 - SUMMARY CREATED
-{'columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Invoice Date', 'Due Days', 'Revenue Head', 'Nature of Services', 'Service', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO'], 'row_count': 4205, 'numeric_columns': ['Invoice Date', 'Due Days', 'Invoice Amount', 'Below 30 Days', 'Overdue 30 - 60 Days', 'Overdue 60 - 180 Days', 'Overdue Above 180 Days', 'Above 1 year', 'Balance Collection Amount', 'Credit Note Issued', 'Balance Amount', 'Unnamed: 18', 'Forex Balance Amount'], 'categorical_columns': ['Client Name', 'Marsha', 'Property Name', 'Invoice No', 'Revenue Head', 'Nature of Services', 'Service', 'Particulars', 'Manager', 'Partner', 'Department', 'Company Group', 'Group', 'Contact Person Name', 'Brand Name', 'Project MID', 'Country', 'GST NO']}
-STEP 6 - BEFORE ANALYZE
-[INFO] Sending data to LLM for analysis...
-[ERROR] LLM analysis failed: '\n  "metric"'
+[DEBUG] Response status: 200
+[OK] Ollama response received
+[WARN] Could not extract JSON from LLM response
 STEP 7 - AFTER ANALYZE
 <class 'NoneType'>
 None
